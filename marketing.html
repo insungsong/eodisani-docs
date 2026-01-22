@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어디사니 - 가는 곳마다 이야기가 있다</title>
+  
+  <!-- Open Graph / 링크 미리보기 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="어디사니 - 가는 곳마다 이야기가 있다">
+  <meta property="og:description" content="회사, 카페, 지하철역, 심지어 예비군 훈련장까지. 당신이 머무는 모든 공간이 커뮤니티가 됩니다.">
+  <meta property="og:image" content="https://insungsong.github.io/eodisani-docs/ios_icon.png">
+  <meta property="og:url" content="https://insungsong.github.io/eodisani-docs/marketing.html">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="어디사니 - 가는 곳마다 이야기가 있다">
+  <meta name="twitter:description" content="회사, 카페, 지하철역, 심지어 예비군 훈련장까지. 당신이 머무는 모든 공간이 커뮤니티가 됩니다.">
+  <meta name="twitter:image" content="https://insungsong.github.io/eodisani-docs/ios_icon.png">
+  
+  <meta name="description" content="회사, 카페, 지하철역, 심지어 예비군 훈련장까지. 당신이 머무는 모든 공간이 커뮤니티가 됩니다.">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/ionicons.min.css">
+  <style>
+    /* Design System Variables */
+    :root {
+      --primary: #0A84FF;
+      --background: #0A0A0A;
+      --card-background: #1C1C1E;
+      --surface-elevated: #2C2C2E;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0A0A0;
+      --text-tertiary: #6B6B6B;
+      --border: #3A3A3C;
+      --success: #30D158;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 12px;
+      --spacing-lg: 16px;
+      --spacing-xl: 20px;
+      --spacing-2xl: 32px;
+      --spacing-3xl: 48px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    
+    body {
+      font-family: var(--font-family);
+      background: var(--background);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-xl);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px var(--spacing-xl);
+      background: linear-gradient(180deg, #0A0A0A 0%, #1C1C1E 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(10, 132, 255, 0.1) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      margin: 0 auto var(--spacing-2xl);
+      box-shadow: 0 20px 60px rgba(10, 132, 255, 0.3);
+      overflow: hidden;
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--spacing-lg);
+      letter-spacing: -2px;
+    }
+
+    .hero-title .highlight {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-3xl);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-lg);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: 16px 32px;
+      border-radius: var(--radius-full);
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #0070E0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(10, 132, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 120px 0;
+      background: var(--background);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(10, 132, 255, 0.15);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .section-desc {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+    }
+
+    .feature-card {
+      background: var(--card-background);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(10, 132, 255, 0.15);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Screenshots Section */
+    .screenshots {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--background) 0%, #1C1C1E 50%, var(--background) 100%);
+      overflow: hidden;
+    }
+
+    .screenshots-wrapper {
+      display: flex;
+      gap: 24px;
+      padding: 40px 0;
+      animation: scroll 30s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .screenshot-item {
+      flex-shrink: 0;
+      width: 280px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border: 4px solid var(--card-background);
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 80px 0;
+      background: var(--card-background);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-2xl);
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: var(--spacing-xl);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: var(--spacing-sm);
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* Download Section */
+    .download {
+      padding: 120px 0;
+      text-align: center;
+      background: var(--background);
+    }
+
+    .download-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .download-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: var(--spacing-lg);
+      letter-spacing: -1px;
+    }
+
+    .download-desc {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-3xl);
+    }
+
+    .store-badges {
+      display: flex;
+      gap: var(--spacing-lg);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #000;
+      padding: 14px 24px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .store-badge:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .store-badge ion-icon {
+      font-size: 32px;
+    }
+
+    .store-info {
+      text-align: left;
+    }
+
+    .store-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .store-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 60px 0;
+      background: #000;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xl);
+    }
+
+    .footer-brand {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--spacing-2xl);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px var(--spacing-lg);
+        min-height: auto;
+      }
+
+      .hero-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features, .screenshots, .download {
+        padding: 80px 20px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
+
+      .screenshots-wrapper {
+        animation-duration: 20s;
+      }
+
+      .screenshot-item {
+        width: 220px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+        padding: 0 16px;
+      }
+
+      .stat-item {
+        padding: var(--spacing-md);
+      }
+
+      .stat-number {
+        font-size: 36px;
+      }
+
+      .stat-label {
+        font-size: 13px;
+      }
+
+      .download-content {
+        padding: 0 20px;
+      }
+
+      .store-badges {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .store-badge {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 20px;
+      }
+
+      .footer-links {
+        gap: var(--spacing-lg);
+      }
+
+      .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+
+      .step-card {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--spacing-lg);
+      }
+
+      .step-number {
+        flex-shrink: 0;
+      }
+    }
+
+    /* Use Cases Section */
+    .use-cases {
+      padding: 120px var(--spacing-lg);
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .use-case-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .use-case-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+    }
+
+    .use-case-emoji {
+      font-size: 48px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .use-case-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .use-case-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* How it Works Section */
+    .how-it-works {
+      padding: 120px var(--spacing-lg);
+      background: var(--bg-secondary);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-2xl);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--spacing-md);
+    }
+
+    .step-number {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .step-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .use-cases-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .use-cases, .how-it-works, .why-section {
+        padding: 80px var(--spacing-lg);
+      }
+
+      .why-content {
+        flex-direction: column;
+      }
+
+      .why-card {
+        padding: var(--spacing-xl);
+      }
+    }
+
+    /* Why Section */
+    .why-section {
+      padding: 120px var(--spacing-lg);
+      background: var(--bg-primary);
+    }
+
+    .why-content {
+      display: flex;
+      gap: var(--spacing-2xl);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      flex: 1;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-2xl);
+    }
+
+    .why-icon {
+      font-size: 48px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .why-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+      color: var(--text-primary);
+    }
+
+    .why-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .why-list li {
+      padding: var(--spacing-sm) 0;
+      padding-left: var(--spacing-lg);
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .why-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Hero CTA Section */
+    .hero-cta {
+      padding: 120px var(--spacing-lg);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+
+    .hero-cta-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+    }
+
+    .hero-cta-main {
+      text-align: left;
+    }
+
+    .hero-cta-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-lg);
+      color: var(--text-primary);
+    }
+
+    .hero-cta-desc {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .hero-cta-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .cta-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
+      display: flex;
+      gap: var(--spacing-lg);
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .cta-card:hover {
+      border-color: var(--primary);
+      transform: translateX(8px);
+    }
+
+    .cta-card-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .cta-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-primary);
+    }
+
+    .cta-card-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .hero-cta-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-cta-main {
+        text-align: center;
+      }
+
+      .hero-cta-title {
+        font-size: 32px;
+      }
+
+      .cta-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .cta-card:hover {
+        transform: translateY(-4px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-cta {
+        padding: 80px var(--spacing-lg);
+      }
+
+      .hero-cta-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="app-icon">
+        <img src="ios_icon.png" alt="어디사니 로고">
+      </div>
+      <h1 class="hero-title">
+        가는 곳마다<br>
+        <span class="highlight">이야기가 있다</span>
+      </h1>
+      <p class="hero-subtitle">
+        회사 건물, 자주 가는 카페, 지하철역, 심지어 매년 가는 예비군 훈련장까지. 당신이 머무는 모든 공간이 하나의 커뮤니티가 됩니다.
+      </p>
+      <div class="cta-buttons">
+        <a href="#download" class="btn btn-primary">
+          <ion-icon name="download-outline"></ion-icon>
+          앱 다운로드
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          자세히 알아보기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="use-cases" id="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">이런 곳에서</span>
+        <h2 class="section-title">사람이 모이는 곳엔<br>이야기가 있습니다</h2>
+        <p class="section-desc">
+          당신이 머무는 모든 공간이 커뮤니티가 됩니다.
+        </p>
+      </div>
+      <div class="use-cases-grid">
+        <div class="use-case-card">
+          <div class="use-case-emoji">🏢</div>
+          <h3 class="use-case-title">회사 건물</h3>
+          <p class="use-case-desc">"1층 카페 커피 맛없어졌어요" "엘리베이터 왜 이렇게 느려요" 같은 건물 직장인들끼리만 공감하는 이야기.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">☕</div>
+          <h3 class="use-case-title">단골 카페</h3>
+          <p class="use-case-desc">"오늘 사장님 기분 좋으신듯" "새로 나온 메뉴 맛있어요" 매일 가는 그 카페의 숨은 이야기.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">🚇</div>
+          <h3 class="use-case-title">지하철역</h3>
+          <p class="use-case-desc">"출근길 3호선 6정거장..." 매일 지나는 그 역, 같은 시간 같은 곳을 지나는 사람들의 공감.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">🎖️</div>
+          <h3 class="use-case-title">예비군 훈련장</h3>
+          <p class="use-case-desc">"올해 PX 메뉴 바뀜?" "아 벌써 또 1년" 매년 가는 지루한 그곳에서도 이야기는 피어납니다.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">🏥</div>
+          <h3 class="use-case-title">병원 대기실</h3>
+          <p class="use-case-desc">"대기 얼마나 걸려요?" "주차 어디에 했어요?" 같은 공간에서 기다리는 사람들끼리의 정보 공유.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">🏋️</div>
+          <h3 class="use-case-title">헬스장</h3>
+          <p class="use-case-desc">"러닝머신 3번 고장났어요" "PT 선생님 추천해요" 같은 헬스장을 다니는 사람들의 솔직한 후기.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">📚</div>
+          <h3 class="use-case-title">도서관</h3>
+          <p class="use-case-desc">"열람실 자리 있나요?" "오늘 에어컨 너무 세요" 공부하는 사람들끼리의 은밀한 소통.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-emoji">🏠</div>
+          <h3 class="use-case-title">우리 지역</h3>
+          <p class="use-case-desc">"새로 생긴 가게 어때요?" "치안 괜찮은가요?" 같은 지역에 사는 사람들끼리의 정보 교류.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">핵심 기능</span>
+        <h2 class="section-title">이렇게 작동해요</h2>
+        <p class="section-desc">
+          간단하지만 강력한 기능들로 공간의 이야기를 연결합니다.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3 class="feature-title">지도에서 탐색</h3>
+          <p class="feature-desc">
+            지도를 터치하면 그 장소의 이야기가 보입니다. 전국 어디든, 건물 하나하나가 커뮤니티에요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3 class="feature-title">익명 게시글 & 댓글</h3>
+          <p class="feature-desc">
+            그 장소를 경험한 사람들의 솔직한 이야기. 좋아요, 댓글, 답글로 소통하세요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3 class="feature-title">핫 랭킹</h3>
+          <p class="feature-desc">
+            지금 가장 뜨거운 장소는 어디? 실시간으로 업데이트되는 인기 게시글과 핫플레이스를 확인하세요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">지역 투표 & Q&A</h3>
+          <p class="feature-desc">
+            "이 지역 어때요?" 같은 지역 사람들에게 물어보고, 투표로 의견을 모아보세요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3 class="feature-title">장소 구독</h3>
+          <p class="feature-desc">
+            관심 있는 장소를 즐겨찾기하세요. 새 이야기가 올라오면 바로 알려드려요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗳️</div>
+          <h3 class="feature-title">새 지역 오픈 투표</h3>
+          <p class="feature-desc">
+            원하는 지역이 아직 없다면? 투표로 요청하세요. 충분한 투표가 모이면 새 지역이 오픈돼요.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3 class="feature-title">방문 인증</h3>
+          <p class="feature-desc">
+            실제로 그 장소에 있다면 방문 인증 배지를 받을 수 있어요. 더 신뢰할 수 있는 이야기.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">100% 익명</h3>
+          <p class="feature-desc">
+            누구 눈치 볼 필요 없어요. 완전 익명이라 솔직하게 말할 수 있어요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works Section -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">사용 방법</span>
+        <h2 class="section-title">3단계로 시작하세요</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">장소 찾기</h3>
+          <p class="step-desc">지도에서 궁금한 장소를 터치하거나, 검색으로 찾아보세요.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">이야기 읽기</h3>
+          <p class="step-desc">그 장소를 경험한 사람들의 솔직한 이야기를 확인하세요.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">참여하기</h3>
+          <p class="step-desc">당신의 경험도 익명으로 공유하고, 다른 이야기에 반응해보세요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="screenshots">
+    <div class="section-header">
+      <span class="section-tag">앱 미리보기</span>
+      <h2 class="section-title">직접 확인해보세요</h2>
+      <p class="section-desc">
+        어디사니의 다양한 화면들을 미리 만나보세요.
+      </p>
+    </div>
+    <div class="screenshots-wrapper">
+      <div class="screenshot-item"><img src="screenshots/1-feed.png" alt="피드 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/2-explore.png" alt="탐색 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/3-map.png" alt="지도 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/4-building.png" alt="건물 상세"></div>
+      <div class="screenshot-item"><img src="screenshots/5-poll.png" alt="투표 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/6-qna.png" alt="Q&A 화면"></div>
+      <!-- Duplicate for infinite scroll effect -->
+      <div class="screenshot-item"><img src="screenshots/1-feed.png" alt="피드 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/2-explore.png" alt="탐색 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/3-map.png" alt="지도 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/4-building.png" alt="건물 상세"></div>
+      <div class="screenshot-item"><img src="screenshots/5-poll.png" alt="투표 화면"></div>
+      <div class="screenshot-item"><img src="screenshots/6-qna.png" alt="Q&A 화면"></div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">왜 어디사니인가요?</span>
+        <h2 class="section-title">공간은 많은데<br>이야기할 곳이 없었어요</h2>
+      </div>
+      <div class="why-content">
+        <div class="why-card">
+          <div class="why-icon">🤔</div>
+          <h3 class="why-title">이런 경험 있으신가요?</h3>
+          <ul class="why-list">
+            <li>"이 건물 사람들은 어떤 생각을 할까?"</li>
+            <li>"매일 같은 지하철 타는 사람들, 뭐하는 사람들일까?"</li>
+            <li>"이 카페 맨날 오는데 단골들끼리 얘기할 데가 없네"</li>
+            <li>"예비군 갔는데 다들 지루해하면서 폰만 보네..."</li>
+          </ul>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💡</div>
+          <h3 class="why-title">어디사니가 연결해드려요</h3>
+          <ul class="why-list">
+            <li>같은 공간을 경험하는 사람들끼리의 자연스러운 소통</li>
+            <li>익명이라 부담 없이 솔직하게</li>
+            <li>광고나 상업적 콘텐츠 없이 순수한 사용자 이야기만</li>
+            <li>지도 기반으로 어떤 장소든 커뮤니티로</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">전국</div>
+          <div class="stat-label">지역 커뮤니티</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">수도권</div>
+          <div class="stat-label">건물 커뮤니티</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">완전 익명</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">무료</div>
+          <div class="stat-label">광고 없음</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Be the Hero Section -->
+  <section class="hero-cta">
+    <div class="container">
+      <div class="hero-cta-content">
+        <div class="hero-cta-main">
+          <span class="section-tag">당신의 역할</span>
+          <h2 class="hero-cta-title">그 공간의 첫 번째<br><span class="highlight">주인공</span>이 되어주세요</h2>
+          <p class="hero-cta-desc">
+            아직 아무도 글을 남기지 않은 건물이 있어요.<br>
+            당신이 첫 이야기를 시작하면, 그곳이 커뮤니티가 됩니다.
+          </p>
+        </div>
+        <div class="hero-cta-cards">
+          <div class="cta-card">
+            <div class="cta-card-icon">📢</div>
+            <h3 class="cta-card-title">공유하기</h3>
+            <p class="cta-card-desc">
+              매일 가는 지루한 회사 건물, 동료들에게 공유해보세요. 함께하면 재밌는 커뮤니티가 됩니다.
+            </p>
+          </div>
+          <div class="cta-card">
+            <div class="cta-card-icon">✍️</div>
+            <h3 class="cta-card-title">첫 글 쓰기</h3>
+            <p class="cta-card-desc">
+              "여기 엘리베이터 왜 이래요?" 한 마디면 충분해요. 누군가 공감하며 답글을 달 거예요.
+            </p>
+          </div>
+          <div class="cta-card">
+            <div class="cta-card-icon">🌱</div>
+            <h3 class="cta-card-title">커뮤니티 성장</h3>
+            <p class="cta-card-desc">
+              조용했던 공간이 활기찬 커뮤니티로. 당신이 시작한 이야기가 그곳을 바꿉니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="download-content">
+        <h2 class="download-title">지금 바로 시작하세요</h2>
+        <p class="download-desc">
+          당신이 머무는 곳, 그곳의 주인공이 되어주세요.<br>
+          가는 곳마다 이야기가 있다, 어디사니.
+        </p>
+        <div class="store-badges">
+          <a href="#" class="store-badge">
+            <ion-icon name="logo-apple"></ion-icon>
+            <div class="store-info">
+              <span class="store-label">Download on the</span>
+              <span class="store-name">App Store</span>
+            </div>
+          </a>
+          <a href="#" class="store-badge">
+            <ion-icon name="logo-google-playstore"></ion-icon>
+            <div class="store-info">
+              <span class="store-label">Get it on</span>
+              <span class="store-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">어디사니</div>
+        <div class="footer-links">
+          <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+          <a href="privacy-choices.html" class="footer-link">개인정보 선택 사항</a>
+          <a href="terms.html" class="footer-link">이용약관</a>
+          <a href="support.html" class="footer-link">고객지원</a>
+          <a href="contact.html" class="footer-link">문의하기</a>
+        </div>
+        <div class="footer-copyright">
+          © 2025 어디사니. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
