@@ -431,6 +431,58 @@
       color: var(--text-tertiary);
     }
 
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%) translateY(150%);
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.95) 0%, rgba(0, 112, 224, 0.95) 100%);
+      color: white;
+      padding: 20px 32px;
+      border-radius: var(--radius-full);
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 20px 60px rgba(10, 132, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      z-index: 9999;
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon {
+      font-size: 24px;
+      animation: pulse-icon 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse-icon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .toast-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toast-title {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .toast-subtitle {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero {
@@ -1130,7 +1182,7 @@
               <span class="store-name">App Store</span>
             </div>
           </a>
-          <a href="#" class="store-badge">
+          <a href="#" class="store-badge" onclick="showAndroidToast(event)">
             <ion-icon name="logo-google-playstore"></ion-icon>
             <div class="store-info">
               <span class="store-label">Get it on</span>
@@ -1161,8 +1213,30 @@
     </div>
   </footer>
 
+  <!-- Toast Container -->
+  <div id="toast" class="toast">
+    <div class="toast-icon">⏰</div>
+    <div class="toast-text">
+      <div class="toast-title">곧 만나요!</div>
+      <div class="toast-subtitle">Android 앱을 열심히 준비하고 있어요 ✨</div>
+    </div>
+  </div>
+
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Toast Script -->
+  <script>
+    function showAndroidToast(event) {
+      event.preventDefault();
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
