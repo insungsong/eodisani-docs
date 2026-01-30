@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어디사니 - 고객 지원</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #0A84FF 0%, #00D4FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #999;
+            font-size: 16px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #0A84FF;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background: rgba(10, 132, 255, 0.1);
+            border-left: 3px solid #0A84FF;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info strong {
+            color: #0A84FF;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .faq-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .faq-item p {
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0A84FF 0%, #0066CC 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(10, 132, 255, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>어디사니</h1>
+            <p class="subtitle">지도 위 커뮤니티</p>
+        </div>
+        
+        <div class="section">
+            <h2>📧 문의하기</h2>
+            <div class="contact-info">
+                <p><strong>이메일:</strong> song22861@naver.com</p>
+                <p><strong>운영시간:</strong> 평일 10:00 - 18:00 (주말 및 공휴일 제외)</p>
+                <p style="margin-bottom: 0;"><strong>평균 응답 시간:</strong> 1-2 영업일</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>❓ 자주 묻는 질문</h2>
+            
+            <div class="faq-item">
+                <h3>Q. 위치 권한을 허용해야 하나요?</h3>
+                <p>A. 어디사니는 지도 기반 서비스로, 현재 위치 주변의 정보를 제공하기 위해 위치 권한이 필요합니다. 위치 정보는 서비스 제공 목적으로만 사용되며 안전하게 보호됩니다.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q. 건물 인증은 어떻게 하나요?</h3>
+                <p>A. 해당 건물 근처(50m 이내)에서 '방문 인증하기' 버튼을 누르면 자동으로 인증됩니다. GPS를 켜고 건물 가까이에서 시도해주세요.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q. 부적절한 콘텐츠를 발견했어요</h3>
+                <p>A. 게시글 또는 댓글의 신고 기능을 이용하시거나, song22861@naver.com으로 제보해주시면 빠르게 조치하겠습니다.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q. 회원 탈퇴는 어떻게 하나요?</h3>
+                <p>A. 앱 내 설정 > 계정 관리 > 회원 탈퇴에서 진행하실 수 있습니다. 탈퇴 시 모든 데이터가 삭제되며 복구가 불가능합니다.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔒 개인정보 처리방침</h2>
+            <p>어디사니는 사용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.</p>
+            <!-- <a href="#" class="button">개인정보 처리방침 보기</a> -->
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 어디사니. All rights reserved.</p>
+            <p>Version 1.0.0</p>
+        </div>
+    </div>
+</body>
+</html>
