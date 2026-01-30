@@ -24,9 +24,10 @@
     :root {
       --bg-dark: #050507;
       --bg-card: rgba(22, 22, 26, 0.6);
-      --primary: #5E5CE6;
-      --primary-glow: rgba(94, 92, 230, 0.4);
-      --accent: #BF5AF2;
+      /* Meta Deep Blue Theme */
+      --primary: #0066FF; 
+      --primary-glow: rgba(0, 102, 255, 0.4);
+      --accent: #0668E1; 
       --text-main: #FFFFFF;
       --text-muted: #989899;
       --border: rgba(255, 255, 255, 0.08);
@@ -52,8 +53,8 @@
       height: 100vh;
       z-index: -1;
       background: 
-        radial-gradient(circle at 15% 50%, rgba(94, 92, 230, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(191, 90, 242, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(6, 104, 225, 0.08) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -116,7 +117,7 @@
       width: 120px;
       height: 120px;
       border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(94, 92, 230, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
       animation: float 6s ease-in-out infinite;
       position: relative;
       z-index: 2;
@@ -151,7 +152,7 @@
     }
 
     .text-highlight {
-      background: linear-gradient(135deg, #5E5CE6 0%, #BF5AF2 100%);
+      background: linear-gradient(135deg, #0066FF 0%, #0668E1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -232,7 +233,7 @@
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
-    /* Stats Section (Restored) */
+    /* Stats Section */
     .stats-section {
       padding: 60px 0 120px;
     }
@@ -255,7 +256,7 @@
     .stat-number {
       font-size: 32px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 8px;
     }
 
@@ -284,7 +285,7 @@
 
     .use-case-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
 
@@ -294,31 +295,34 @@
       border-radius: 24px;
       padding: 32px;
       position: relative;
-    }
-    
-    .quote-icon {
-      font-size: 40px;
-      color: rgba(94, 92, 230, 0.5);
-      margin-bottom: 16px;
-    }
-    
-    .use-case-quote {
-      font-size: 20px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-    
-    .use-case-context {
-      font-size: 15px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      transition: all 0.3s ease;
     }
 
-    /* How It Works (Restored) */
+    .use-case-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 32px rgba(0, 102, 255, 0.15);
+    }
+    
+    .use-case-emoji {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .use-case-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+    
+    .use-case-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* How It Works */
     .how-it-works {
       padding: 120px 0;
     }
@@ -389,6 +393,45 @@
       height: auto;
       display: block;
       border-radius: 14px;
+    }
+
+    /* Why Section (New) */
+    .why-section {
+      padding: 100px 0;
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .why-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 40px;
+    }
+    
+    .why-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    
+    .why-list li {
+      padding: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-muted);
+    }
+    
+    .why-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
     }
 
     /* Features Grid */
@@ -467,14 +510,14 @@
       padding-left: 32px;
     }
 
-    /* Hero CTA (Restored) */
+    /* Hero CTA */
     .hero-cta {
       padding: 120px 0;
       text-align: center;
     }
 
     .hero-cta-box {
-      background: linear-gradient(135deg, rgba(94, 92, 230, 0.1) 0%, rgba(191, 90, 242, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(6, 104, 225, 0.1) 100%);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 40px;
       padding: 80px 40px;
@@ -489,7 +532,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at top right, rgba(94, 92, 230, 0.2), transparent 50%);
+      background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.2), transparent 50%);
       pointer-events: none;
     }
 
@@ -584,6 +627,9 @@
       .story-text { font-size: 20px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .step { flex-direction: column; gap: 16px; align-items: center; text-align: center; }
+      
+      .why-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+      .why-card { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -606,13 +652,13 @@
         </div>
         
         <h1>
-          <span class="text-gradient">공간이</span><br>
-          <span class="text-highlight">커뮤니티가 되다</span>
+          <span class="text-gradient">가는 곳마다</span><br>
+          <span class="text-highlight">이야기가 있다</span>
         </h1>
         
         <p class="hero-desc">
-          매일 가는 그곳, 낯선 사람들과의 익숙한 대화.<br>
-          어디사니에서 진짜 '우리 동네' 이야기를 시작하세요.
+          회사 건물, 자주 가는 카페, 지하철역, 예비군 훈련장까지.<br>
+          당신이 머무는 모든 공간이 하나의 커뮤니티가 됩니다.
         </p>
 
         <div class="cta-group">
@@ -633,10 +679,10 @@
   <section class="story-section" id="story">
     <div class="container">
       <div class="story-text reveal">
-        <span>우리는 수만 명의 사람과<br>같은 지하철을 타지만</span>
+        <span>우리는 수만 명의 사람과<br>같은 공간에 있지만</span>
         <span>단 한 마디도 나누지 않습니다.</span>
         <br>
-        <span class="story-highlight">하지만 궁금하지 않나요?</span>
+        <span class="story-highlight">궁금하지 않나요?</span>
         <span style="font-size: 20px; color: var(--text-muted); font-weight: 400; margin-top: 24px;">
           지금 옆에 앉은 저 사람의 하루는 어땠을지.<br>
           매일 마주치는 A동 302호사는 사람의 고민은 무엇일지.
@@ -645,65 +691,83 @@
     </div>
   </section>
 
-  <!-- Stats Section (Restored) -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid reveal">
-        <div class="stat-item">
-          <div class="stat-number">전국</div>
-          <div class="stat-label">지역 커뮤니티</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">수도권</div>
-          <div class="stat-label">건물 커뮤니티</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">완전 익명</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">Free</div>
-          <div class="stat-label">광고 없는 청정구역</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
+  <!-- Use Cases: Rich Content Restored -->
   <section class="use-cases">
     <div class="container">
       <div class="reveal">
-        <h2 class="section-title">이럴 때 필요해요</h2>
-        <p class="section-subtitle">말 걸기는 어색하지만, 소통은 하고 싶은 순간들</p>
+        <h2 class="section-title">사람이 모이는 곳엔 이야기가 있습니다</h2>
+        <p class="section-subtitle">당신이 머무는 모든 공간이 연결됩니다</p>
       </div>
 
       <div class="use-case-grid">
         <div class="use-case-card reveal">
-          <div class="quote-icon">❝</div>
-          <div class="use-case-quote">"1층 카페 오늘 문 닫았나요?"</div>
-          <div class="use-case-context">
-            <ion-icon name="business"></ion-icon> 회사 건물 커뮤니티에서
-          </div>
+          <div class="use-case-emoji">🏢</div>
+          <h3 class="use-case-title">회사 건물</h3>
+          <p class="use-case-desc">"1층 카페 오늘 문 닫았나요?" "엘리베이터 왜 이렇게 느려요" 같은 건물 직장인들끼리만 공감하는 찐이야기.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.1s">
-          <div class="quote-icon">❝</div>
-          <div class="use-case-quote">"윗집 쿵쿵 소리 저만 들리나요?"</div>
-          <div class="use-case-context">
-            <ion-icon name="home"></ion-icon> 오피스텔/아파트 주민끼리
-          </div>
+          <div class="use-case-emoji">☕</div>
+          <h3 class="use-case-title">단골 카페</h3>
+          <p class="use-case-desc">"오늘 사장님 기분 좋으신 듯!" "새로 나온 메뉴 드셔보신 분?" 매일 가는 그 카페의 숨은 이야기.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.2s">
-          <div class="quote-icon">❝</div>
-          <div class="use-case-quote">"1호선 지금 연착인가요?"</div>
-          <div class="use-case-context">
-            <ion-icon name="train"></ion-icon> 지하철역 실시간 제보
-          </div>
+          <div class="use-case-emoji">🚇</div>
+          <h3 class="use-case-title">지하철역</h3>
+          <p class="use-case-desc">"출근길 1호선 또 연착..." 매일 같은 시간, 같은 곳을 지나는 사람들의 실시간 제보와 공감.</p>
+        </div>
+        <div class="use-case-card reveal" style="transition-delay: 0.3s">
+          <div class="use-case-emoji">🎖️</div>
+          <h3 class="use-case-title">예비군 훈련장</h3>
+          <p class="use-case-desc">"올해 PX 메뉴 바뀜?" "아 벌써 또 1년..." 매년 가는 지루한 그곳에서도 이야기는 피어납니다.</p>
+        </div>
+        <div class="use-case-card reveal" style="transition-delay: 0.4s">
+          <div class="use-case-emoji">🏋️</div>
+          <h3 class="use-case-title">헬스장</h3>
+          <p class="use-case-desc">"벤치프레스 자리 났나요?" "PT 선생님 추천 좀요!" 운동하는 사람들끼리의 정보 공유.</p>
+        </div>
+        <div class="use-case-card reveal" style="transition-delay: 0.5s">
+          <div class="use-case-emoji">🏠</div>
+          <h3 class="use-case-title">우리 지역</h3>
+          <p class="use-case-desc">"새로 생긴 가게 어때요?" "오피스텔 택배 받아주나요?" 가까운 이웃끼리의 꿀팁 공유.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works (Restored) -->
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+        <h2 class="section-title">더 강력해진 기능</h2>
+        <p class="section-subtitle">간단하지만 강력한 기능들로 공간의 이야기를 연결합니다</p>
+      </div>
+
+      <div class="grid">
+        <div class="card reveal">
+          <div class="card-icon"><ion-icon name="map"></ion-icon></div>
+          <h3>지도 기반 탐색</h3>
+          <p>지도를 터치하면 숨겨진 이야기가 펼쳐집니다. 전국 어디든, 건물 하나하나가 커뮤니티가 됩니다.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><ion-icon name="flame"></ion-icon></div>
+          <h3>핫 랭킹</h3>
+          <p>지금 가장 뜨거운 장소는 어디? 실시간으로 업데이트되는 인기 게시글과 핫플레이스를 확인하세요.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><ion-icon name="checkmark-circle"></ion-icon></div>
+          <h3>방문 인증 배지</h3>
+          <p>실제 그 장소에 방문한 사람에게만 주어지는 배지. 인증된 사용자들의 믿을 수 있는 이야기.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><ion-icon name="chatbubbles"></ion-icon></div>
+          <h3>100% 익명</h3>
+          <p>누구 눈치 볼 필요 없어요. 닉네임도 필요 없는 완전 익명으로 솔직한 속마음을 털어놓으세요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
   <section class="how-it-works">
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 60px;">
@@ -754,28 +818,55 @@
     </div>
   </section>
 
-  <section class="features" id="features">
+  <!-- Why Section (New) -->
+  <section class="why-section reveal">
     <div class="container">
-      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
-        <h2 class="section-title">건물마다 새로운 세상</h2>
-        <p class="section-subtitle">지도를 터치하면 숨겨진 이야기가 펼쳐집니다</p>
+      <div class="section-title">공간은 많은데<br>이야기할 곳이 없었나요?</div>
+      
+      <div class="why-grid">
+        <div class="why-card">
+          <div style="font-size: 40px; margin-bottom: 24px;">🤔</div>
+          <h3>이런 경험 있으신가요?</h3>
+          <ul class="why-list">
+            <li>"이 건물 사람들은 무슨 생각을 할까?"</li>
+            <li>"매일 같은 지하철 타는 사람들, 궁금하다..."</li>
+            <li>"이 헬스장 기구는 좋은데, 얘기할 사람이 없네"</li>
+            <li>"예비군 왔는데 다들 폰만 보고 심심해..."</li>
+          </ul>
+        </div>
+        <div class="why-card">
+          <div style="font-size: 40px; margin-bottom: 24px;">💡</div>
+          <h3>어디사니가 연결합니다</h3>
+          <ul class="why-list">
+            <li>같은 공간에 있는 사람들의 자연스러운 소통</li>
+            <li>완전 익명으로 부담 없이 솔직하게</li>
+            <li>광고 없는 청정구역, 진짜 사용자들의 이야기</li>
+            <li>지도 기반으로 대한민국 모든 곳이 커뮤니티로</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="grid">
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="map"></ion-icon></div>
-          <h3>지도 기반 탐색</h3>
-          <p>내 주변의 건물, 지하철역, 공원을 터치해보세요. 그 곳만의 독립된 커뮤니티가 있습니다.</p>
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-number">전국</div>
+          <div class="stat-label">지역 커뮤니티</div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="chatbubbles"></ion-icon></div>
-          <h3>100% 익명 보장</h3>
-          <p>닉네임도 필요 없습니다. 누구의 눈치도 보지 말고 솔직한 속마음을 털어놓으세요.</p>
+        <div class="stat-item">
+          <div class="stat-number">수도권</div>
+          <div class="stat-label">건물 커뮤니티</div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="shield-checkmark"></ion-icon></div>
-          <h3>위치 인증 배지</h3>
-          <p>실제 그 장소에 방문한 사람에게만 주어지는 배지. 더 신뢰할 수 있는 진짜 정보.</p>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">완전 익명</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Free</div>
+          <div class="stat-label">광고 없는 청정구역</div>
         </div>
       </div>
     </div>
@@ -815,7 +906,7 @@
     </div>
   </section>
 
-  <!-- Hero CTA (Restored) -->
+  <!-- Hero CTA -->
   <section class="hero-cta">
     <div class="container">
       <div class="hero-cta-box reveal">
