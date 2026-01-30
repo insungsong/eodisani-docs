@@ -536,13 +536,6 @@
       pointer-events: none;
     }
 
-    /* Footer */
-    footer {
-      padding: 80px 0 40px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
     /* Download Section */
     .download {
       padding: 120px 0;
@@ -607,6 +600,12 @@
       font-weight: 700;
     }
 
+    /* Footer */
+    footer {
+      padding: 80px 0 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
 
     .footer-links {
       display: flex;
@@ -695,6 +694,9 @@
       
       .why-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
       .why-card { padding: 32px 24px; }
+      
+      .store-badges { flex-direction: column; width: 100%; padding: 0 20px; }
+      .store-badge { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -727,13 +729,13 @@
         </p>
 
         <div class="cta-group">
-          <a href="https://apps.apple.com/kr/app/%EC%96%B4%EB%94%94%EC%82%AC%EB%8B%88/id6757377187" class="btn btn-primary">
-            <ion-icon name="logo-apple"></ion-icon>
-            App Store
+          <a href="#download" class="btn btn-primary">
+            <ion-icon name="arrow-down-circle-outline"></ion-icon>
+            앱 다운로드
           </a>
-          <a href="#" class="btn btn-glass" onclick="showAndroidToast(event)">
-            <ion-icon name="logo-google-playstore"></ion-icon>
-            Google Play
+          <a href="#features" class="btn btn-glass">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            더 알아보기
           </a>
         </div>
       </div>
@@ -981,19 +983,13 @@
           당신이 시작한 작은 이야기가 그 곳을 활기찬 커뮤니티로 바꿉니다.
         </p>
         <div class="cta-group">
-          <a href="https://apps.apple.com/kr/app/%EC%96%B4%EB%94%94%EC%82%AC%EB%8B%88/id6757377187" class="btn btn-primary">
-            <ion-icon name="logo-apple"></ion-icon>
-            App Store
-          </a>
-          <a href="#" class="btn btn-glass" onclick="showAndroidToast(event)">
-            <ion-icon name="logo-google-playstore"></ion-icon>
-            Google Play
+          <a href="#download" class="btn btn-primary">
+            <ion-icon name="arrow-down-circle-outline"></ion-icon>
+            지금 시작하기
           </a>
         </div>
       </div>
     </div>
-  </section>
-
   </section>
 
   <!-- Download Section -->
