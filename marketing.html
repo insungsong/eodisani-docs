@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="어디사니 - 공간이 커뮤니티가 되다">
   <meta property="og:description" content="우리는 같은 공간에 있지만 대화하지 않습니다. 어디사니에서 그 침묵을 깨보세요.">
-  <meta property="og:image" content="https://eodisani.com/og_image.png">
+  <meta property="og:image" content="https://one-shot-one-map.s3.ap-northeast-2.amazonaws.com/kakao-talk/og_image_black.png">
   <meta property="og:url" content="https://eodisani.com">
   
   <!-- Fonts & Icons -->
@@ -635,7 +635,7 @@
       position: fixed;
       bottom: 40px;
       left: 50%;
-      transform: translateX(-50%) translateY(150%);
+      transform: translateX(-50%) translateY(100px);
       background: rgba(30, 30, 35, 0.9);
       color: white;
       padding: 16px 24px;
@@ -643,16 +643,20 @@
       font-size: 15px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       z-index: 9999;
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
       display: flex;
       align-items: center;
       gap: 12px;
       backdrop-filter: blur(10px);
       border: 1px solid var(--border);
+      opacity: 0;
+      pointer-events: none;
     }
 
     .toast.show {
       transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* Animations */
