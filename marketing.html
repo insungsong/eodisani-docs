@@ -623,6 +623,47 @@
       transform: translateY(-1px);
     }
 
+    /* Value Proof Section */
+    .value-proof-section {
+      padding: 10px 0 70px;
+    }
+
+    .value-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .value-proof-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px 24px;
+      backdrop-filter: blur(16px);
+    }
+
+    .value-proof-label {
+      font-size: 12px;
+      color: #9FC3FF;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .value-proof-title {
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .value-proof-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
     /* Hero CTA */
     .hero-cta {
       padding: 120px 0;
@@ -814,6 +855,7 @@
       .update-panel { padding: 30px 22px; }
       .update-title { font-size: 24px; }
       .conversion-grid { grid-template-columns: 1fr; }
+      .value-proof-grid { grid-template-columns: 1fr; }
       
       .store-badges { flex-direction: column; width: 100%; padding: 0 20px; }
       .store-badge { width: 100%; justify-content: center; }
@@ -870,6 +912,7 @@
         <span>지금 이 순간 그 공간을 사는 사람들의</span>
         <span>현장 반응을 확인하세요.</span>
         <span style="font-size: 20px; color: var(--text-muted); font-weight: 400; margin-top: 24px;">
+          우리는 그동안 찰나에 머무는 장소에도 피어날 수 있는 커뮤니티를 놓치고 있었습니다.<br>
           회사, 카페, 지하철역, 예비군 훈련장까지.<br>
           같은 공간을 겪는 사람들이 남긴 맥락이 모이면<br>
           의사결정 속도와 정확도가 달라집니다.
@@ -1142,32 +1185,68 @@
       </div>
       <div class="conversion-grid">
         <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">REAL LOCAL SIGNAL</span>
-          <h3 class="conversion-title">지금 이 건물에서<br>무슨 일이 일어나는지 파악</h3>
+          <span class="conversion-eyebrow">CONNECTED COMMUNITY</span>
+          <h3 class="conversion-title">어디서든 연결되는<br>생활 커뮤니티</h3>
           <p class="conversion-desc">
-            “오늘 엘리베이터 느림”, “지금 대기 길다” 같은 생활형 맥락을
-            검색 없이 바로 확인할 수 있습니다.
+            회사, 카페, 지하철역, 동네까지 같은 공간을 겪는 사람들이
+            서로의 경험을 나누고 도움을 주고받는 연결형 커뮤니티를 만듭니다.
           </p>
         </div>
         <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">COLLECTION + FOLLOW</span>
-          <h3 class="conversion-title">관심 공간을 컬렉션으로<br>쌓고 사람 단위로 확장</h3>
+          <span class="conversion-eyebrow">CUSTOM MAP SHARING</span>
+          <h3 class="conversion-title">나만의 커스텀 지도를<br>쉽게 공유</h3>
           <p class="conversion-desc">
-            자주 가는 장소를 모아두고, 팔로우/팔로워 기반 공개 범위로
-            신뢰 가능한 네트워크 안에서 공유할 수 있습니다.
+            관심 건물과 장소를 컬렉션으로 구성하고,
+            팔로우/팔로워 기반 공개 범위로 내 기준과 인사이트를 편하게 전달할 수 있습니다.
           </p>
         </div>
         <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">LOW FRICTION</span>
-          <h3 class="conversion-title">쓰기 시작한 순간을 놓치지 않는<br>임시 저장 + 복구</h3>
+          <span class="conversion-eyebrow">HYPER-LOCAL FEED</span>
+          <h3 class="conversion-title">시군구별 맞춤 소식과<br>건물 단위 의사결정 정보</h3>
           <p class="conversion-desc">
-            이동 중 끊겨도 내용이 유지됩니다.
-            생각난 순간 기록하고, 여유 있을 때 완성하면 됩니다.
+            시군구 단위로 원하는 소식을 내 기호에 맞게 받고,
+            궁금한 건물의 이야기부터 살아갈 집을 고를 때 필요한 건물 맥락까지 확인할 수 있습니다.
           </p>
           <a href="#download" class="mini-cta">
             <ion-icon name="arrow-down-circle-outline"></ion-icon>
             지금 시작하기
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proof Section -->
+  <section class="value-proof-section">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: 26px;">
+        <h2 class="section-title">어디사니가 실제로 바꾸는 것</h2>
+        <p class="section-subtitle">찰나에 스치던 공간을, 연결과 도움이 오가는 커뮤니티로 바꿉니다.</p>
+      </div>
+      <div class="value-proof-grid">
+        <div class="value-proof-card reveal">
+          <span class="value-proof-label">FOR DAILY LIFE</span>
+          <h3 class="value-proof-title">매일 지나는 공간을<br>의미 있는 정보 자산으로</h3>
+          <p class="value-proof-desc">
+            스쳐 지나가던 건물이 내 생활 데이터가 됩니다.
+            출근 동선, 단골 장소, 자주 머무는 구역의 변화를 더 빨리 파악할 수 있습니다.
+          </p>
+        </div>
+        <div class="value-proof-card reveal">
+          <span class="value-proof-label">FOR HOME DECISION</span>
+          <h3 class="value-proof-title">살 집을 고민할 때 필요한<br>건물 단위 맥락</h3>
+          <p class="value-proof-desc">
+            지도에서 궁금한 건물을 눌러 실제 체감 이야기를 확인하세요.
+            숫자 스펙만으로는 보이지 않는 생활 맥락이 선택 기준이 됩니다.
+          </p>
+        </div>
+        <div class="value-proof-card reveal">
+          <span class="value-proof-label">FOR LOCAL SIGNAL</span>
+          <h3 class="value-proof-title">시군구별 소식을<br>내 취향대로 수신</h3>
+          <p class="value-proof-desc">
+            지역 단위로 필요한 정보만 받아보며 과잉 알림을 줄일 수 있습니다.
+            내가 관심 있는 공간과 주제 중심으로 로컬 피드를 설계해보세요.
+          </p>
         </div>
       </div>
     </div>
