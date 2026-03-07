@@ -735,35 +735,6 @@
       font-size: 13px;
     }
     
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: rgba(30, 30, 35, 0.9);
-      color: white;
-      padding: 16px 24px;
-      border-radius: 50px;
-      font-size: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
     /* Animations */
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0); }
@@ -1217,7 +1188,7 @@
             <span class="store-name">App Store</span>
           </div>
         </a>
-        <a href="#" class="store-badge" onclick="showAndroidToast(event)">
+        <a href="https://play.google.com/store/apps/details?id=com.eodisani.app.insung&amp;hl=ko" class="store-badge">
           <ion-icon name="logo-google-playstore" style="font-size: 32px;"></ion-icon>
           <div class="store-info">
             <span class="store-label">Get it on</span>
@@ -1239,13 +1210,6 @@
       <p class="copyright">© 2025 Eodisani. All rights reserved.</p>
     </div>
   </footer>
-  
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">
-    <ion-icon name="logo-android" style="font-size: 20px; color: #3DDC84;"></ion-icon>
-    <span>곧 출시됩니다! 🚧</span>
-  </div>
-
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -1275,17 +1239,6 @@
         header.classList.remove('scrolled');
       }
     });
-    
-    // Android Toast Script
-    function showAndroidToast(event) {
-      event.preventDefault();
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
-    }
   </script>
 </body>
 </html>
