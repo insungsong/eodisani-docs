@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>어디사니 - 공간이 커뮤니티가 되다</title>
+  <title>어디사니 - 동네와 건물의 지금을 지도에서</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="회사, 아파트, 지하철, 예비군 훈련장까지. 당신이 머무는 모든 공간이 익명 커뮤니티가 됩니다. 지금 '어디사니'에서 진짜 이야기를 만나보세요.">
-  <meta name="keywords" content="어디사니, 지역커뮤니티, 익명커뮤니티, 회사커뮤니티, 아파트앱, 로컬정보">
+  <meta name="description" content="시/군/구 커뮤니티, 건물별 이야기, 실시간 급상승, 피드, 공공 프로그램 캘린더까지. 어디사니 1.0.7에서 동네와 건물의 지금을 지도 위에서 확인하세요.">
+  <meta name="keywords" content="어디사니, 지역커뮤니티, 건물커뮤니티, 공공프로그램, 로컬정보, 청약, 지역뉴스, 보관함">
   <link rel="icon" type="image/png" href="favicon.png">
 
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="어디사니 - 공간이 커뮤니티가 되다">
-  <meta property="og:description" content="우리는 같은 공간에 있지만 대화하지 않습니다. 어디사니에서 그 침묵을 깨보세요.">
+  <meta property="og:title" content="어디사니 - 동네와 건물의 지금을 지도에서">
+  <meta property="og:description" content="지역 커뮤니티, 건물 이야기, 실시간 급상승, 공공 프로그램 일정을 한 앱에서 확인하세요.">
   <meta property="og:image" content="https://one-shot-one-map.s3.ap-northeast-2.amazonaws.com/kakao-talk/og_image_black.png">
   <meta property="og:url" content="https://eodisani.com">
   
@@ -106,6 +106,7 @@
       justify-content: center;
       text-align: center;
       padding-top: 80px;
+      padding-bottom: 60px;
       position: relative;
     }
 
@@ -144,7 +145,22 @@
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 24px;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #B9D4FF;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      background: rgba(0, 102, 255, 0.12);
+      border: 1px solid rgba(0, 102, 255, 0.28);
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin-bottom: 20px;
     }
 
     .text-gradient {
@@ -164,6 +180,29 @@
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto 48px;
+    }
+
+    .release-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 28px auto 0;
+      max-width: 780px;
+    }
+
+    .release-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 13px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
     }
 
     .cta-group {
@@ -375,6 +414,13 @@
       position: relative;
     }
 
+    .showcase-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 20px;
+      padding: 0 24px;
+    }
+
     .showcase-track {
       display: flex;
       gap: 32px;
@@ -395,6 +441,56 @@
       height: auto;
       display: block;
       border-radius: 14px;
+    }
+
+    .tablet-section {
+      padding: 20px 0 110px;
+    }
+
+    .tablet-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: center;
+      gap: 48px;
+    }
+
+    .tablet-copy {
+      max-width: 420px;
+    }
+
+    .tablet-label {
+      color: #9FC3FF;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    .tablet-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 18px;
+    }
+
+    .tablet-desc {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .tablet-frame {
+      border-radius: 28px;
+      border: 6px solid #1C1C1E;
+      overflow: hidden;
+      box-shadow: 0 22px 90px rgba(0, 0, 0, 0.46);
+      background: #000;
+    }
+
+    .tablet-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     /* Why Section (New) */
@@ -536,7 +632,7 @@
       font-size: 12px;
       color: var(--primary);
       margin-bottom: 10px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0;
       font-weight: 700;
     }
 
@@ -597,7 +693,7 @@
       font-size: 12px;
       color: #9FC3FF;
       font-weight: 700;
-      letter-spacing: 0.03em;
+      letter-spacing: 0;
       margin-bottom: 10px;
       display: inline-block;
     }
@@ -748,7 +844,7 @@
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-280px * 6 - 32px * 6)); }
+      100% { transform: translateX(calc(-280px * 8 - 32px * 8)); }
     }
 
     .reveal {
@@ -776,6 +872,10 @@
       .why-card { padding: 32px 24px; }
       .conversion-grid { grid-template-columns: 1fr; }
       .value-proof-grid { grid-template-columns: 1fr; }
+      .release-badges { justify-content: flex-start; padding: 0 20px; }
+      .tablet-grid { grid-template-columns: 1fr; gap: 28px; }
+      .tablet-copy { max-width: none; text-align: center; }
+      .tablet-section { padding-bottom: 70px; }
       
       .store-badges { flex-direction: column; width: 100%; padding: 0 20px; }
       .store-badge { width: 100%; justify-content: center; }
@@ -799,15 +899,20 @@
           <div class="app-icon-glow"></div>
           <img src="ios_icon.png" alt="App Icon" class="app-icon">
         </div>
+
+        <div class="hero-kicker">
+          <ion-icon name="sparkles-outline"></ion-icon>
+          어디사니 1.0.7
+        </div>
         
         <h1>
-          <span class="text-gradient">가는 곳마다</span><br>
-          <span class="text-highlight">이야기가 있다</span>
+          <span class="text-gradient">동네와 건물의 지금을</span><br>
+          <span class="text-highlight">지도에서 바로 확인</span>
         </h1>
         
         <p class="hero-desc">
-          검색창에 없는 생활 정보가 필요할 때,<br>
-          지도에서 건물 하나만 누르면 지금 그 공간의 진짜 반응이 열립니다.
+          시/군/구 커뮤니티, 건물별 이야기, 실시간 급상승,<br>
+          공공 프로그램 일정까지 한 앱에서 이어집니다.
         </p>
 
         <div class="cta-group">
@@ -820,6 +925,14 @@
             더 알아보기
           </a>
         </div>
+
+        <div class="release-badges" aria-label="어디사니 주요 탭">
+          <span class="release-pill"><ion-icon name="map"></ion-icon>시/군/구</span>
+          <span class="release-pill"><ion-icon name="business"></ion-icon>건물</span>
+          <span class="release-pill"><ion-icon name="newspaper"></ion-icon>피드</span>
+          <span class="release-pill"><ion-icon name="calendar-outline"></ion-icon>캘린더</span>
+          <span class="release-pill"><ion-icon name="search"></ion-icon>검색</span>
+        </div>
       </div>
     </div>
   </section>
@@ -828,14 +941,13 @@
   <section class="story-section" id="story">
     <div class="container">
       <div class="story-text reveal">
-        <span class="story-highlight">리뷰가 아니라,</span>
-        <span>지금 이 순간 그 공간을 사는 사람들의</span>
-        <span>현장 반응을 확인하세요.</span>
+        <span class="story-highlight">검색 결과가 아니라,</span>
+        <span>내가 지나가는 지역과 건물에서</span>
+        <span>지금 생기는 일을 확인하세요.</span>
         <span style="font-size: 20px; color: var(--text-muted); font-weight: 400; margin-top: 24px;">
-          우리는 그동안 찰나에 머무는 장소에도 피어날 수 있는 커뮤니티를 놓치고 있었습니다.<br>
-          회사, 카페, 지하철역, 예비군 훈련장까지.<br>
-          같은 공간을 겪는 사람들이 남긴 맥락이 모이면<br>
-          의사결정 속도와 정확도가 달라집니다.
+          우리 동네 질문, 건물별 첫 이야기, 급상승 글, 지역 뉴스와 청약,<br>
+          모집 중인 공공 프로그램까지 지도 위에서 연결됩니다.<br>
+          어디사니는 공간을 찾는 순간 바로 커뮤니티와 정보 흐름으로 이어지게 만듭니다.
         </span>
       </div>
     </div>
@@ -845,40 +957,40 @@
   <section class="use-cases">
     <div class="container">
       <div class="reveal">
-        <h2 class="section-title">사람이 모이는 곳엔 이야기가 있습니다</h2>
-        <p class="section-subtitle">무심코 지나치던 공간이, 정보가 오가는 커뮤니티로 바뀝니다</p>
+        <h2 class="section-title">1.0.7에서 더 넓어진 사용 흐름</h2>
+        <p class="section-subtitle">동네를 찾고, 건물을 살피고, 필요한 일정과 사람까지 이어집니다</p>
       </div>
 
       <div class="use-case-grid">
         <div class="use-case-card reveal">
-          <div class="use-case-emoji">🏢</div>
-          <h3 class="use-case-title">회사 건물</h3>
-          <p class="use-case-desc">"1층 카페 오늘 문 닫았나요?" "엘리베이터 왜 이렇게 느려요" 같은 건물 직장인들끼리만 공감하는 찐이야기.</p>
+          <div class="use-case-emoji">🗺️</div>
+          <h3 class="use-case-title">시/군/구 커뮤니티</h3>
+          <p class="use-case-desc">관심 지역을 고르면 질문, 뉴스, 청약, 프로그램참여 흐름을 지도 위에서 바로 확인할 수 있습니다.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.1s">
-          <div class="use-case-emoji">☕</div>
-          <h3 class="use-case-title">단골 카페</h3>
-          <p class="use-case-desc">"오늘 사장님 기분 좋으신 듯!" "새로 나온 메뉴 드셔보신 분?" 매일 가는 그 카페의 숨은 이야기.</p>
+          <div class="use-case-emoji">🏢</div>
+          <h3 class="use-case-title">건물별 커뮤니티</h3>
+          <p class="use-case-desc">건물 마커를 누르면 주소, 위치, 댓글 수를 보고 같은 건물의 첫 이야기를 바로 시작할 수 있습니다.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.2s">
-          <div class="use-case-emoji">🚇</div>
-          <h3 class="use-case-title">지하철역</h3>
-          <p class="use-case-desc">"출근길 1호선 또 연착..." 매일 같은 시간, 같은 곳을 지나는 사람들의 실시간 제보와 공감.</p>
+          <div class="use-case-emoji">📰</div>
+          <h3 class="use-case-title">한 화면 피드</h3>
+          <p class="use-case-desc">지역, 건물, 뉴스, 청약 글과 인기 보관함을 한 화면에서 훑고 필요한 카테고리만 골라볼 수 있습니다.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.3s">
-          <div class="use-case-emoji">🎖️</div>
-          <h3 class="use-case-title">예비군 훈련장</h3>
-          <p class="use-case-desc">"올해 PX 메뉴 바뀜?" "아 벌써 또 1년..." 매년 가는 지루한 그곳에서도 이야기는 피어납니다.</p>
+          <div class="use-case-emoji">🔥</div>
+          <h3 class="use-case-title">실시간 급상승</h3>
+          <p class="use-case-desc">건물, 지역, 뉴스, 청약 TOP 50을 활동 기준으로 빠르게 살펴보고 지금 뜨는 곳을 놓치지 않습니다.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.4s">
-          <div class="use-case-emoji">🏋️</div>
-          <h3 class="use-case-title">헬스장</h3>
-          <p class="use-case-desc">"벤치프레스 자리 났나요?" "PT 선생님 추천 좀요!" 운동하는 사람들끼리의 정보 공유.</p>
+          <div class="use-case-emoji">📅</div>
+          <h3 class="use-case-title">공공 프로그램 캘린더</h3>
+          <p class="use-case-desc">모집 시작일, 마감 임박, 모집중 상태를 날짜별로 보고 상세 화면에서 신청 페이지까지 이동합니다.</p>
         </div>
         <div class="use-case-card reveal" style="transition-delay: 0.5s">
-          <div class="use-case-emoji">🏠</div>
-          <h3 class="use-case-title">우리 지역</h3>
-          <p class="use-case-desc">"새로 생긴 가게 어때요?" "오피스텔 택배 받아주나요?" 가까운 이웃끼리의 꿀팁 공유.</p>
+          <div class="use-case-emoji">🔎</div>
+          <h3 class="use-case-title">검색과 보관함</h3>
+          <p class="use-case-desc">닉네임과 보관함을 검색하고, 관심 건물과 장소를 내 보관함으로 정리해 공유 범위를 설정할 수 있습니다.</p>
         </div>
       </div>
     </div>
@@ -888,50 +1000,50 @@
   <section class="features" id="features">
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 60px;">
-        <h2 class="section-title">더 강력해진 기능</h2>
-        <p class="section-subtitle">다운로드 후 바로 쓰게 되는 핵심 기능만 담았습니다</p>
+        <h2 class="section-title">지도에서 시작해 생활 정보까지 이어지는 기능</h2>
+        <p class="section-subtitle">프론트와 백엔드에 반영된 최신 앱 흐름을 기준으로 정리했습니다</p>
       </div>
 
       <div class="grid">
         <div class="card reveal">
           <div class="card-icon"><ion-icon name="map"></ion-icon></div>
-          <h3>지도 기반 탐색</h3>
-          <p>지도를 터치하면 숨겨진 이야기가 펼쳐집니다. 전국 어디든, 건물 하나하나가 커뮤니티가 됩니다.</p>
+          <h3>지역 커뮤니티 지도</h3>
+          <p>시/군/구부터 동네까지 주변 이야기를 지도 위에서 확인합니다. 질문, 뉴스, 청약, 프로그램참여 필터로 필요한 흐름만 골라볼 수 있습니다.</p>
         </div>
         <div class="card reveal">
-          <div class="card-icon"><ion-icon name="moon"></ion-icon></div>
-          <h3>다크 모드 지원</h3>
-          <p>지도 영역 다크 모드를 지원합니다. 야간에도 눈의 피로를 줄이고 정보를 더 선명하게 확인할 수 있습니다.</p>
+          <div class="card-icon"><ion-icon name="business"></ion-icon></div>
+          <h3>건물 단위 커뮤니티</h3>
+          <p>건물 마커, 급상승 건물, 즐겨찾기를 중심으로 실제 주소와 위치를 확인하고 같은 건물의 대화를 바로 열 수 있습니다.</p>
         </div>
         <div class="card reveal">
-          <div class="card-icon"><ion-icon name="pulse"></ion-icon></div>
-          <h3>실시간 활동 표시</h3>
-          <p>지금 어디가 가장 뜨거울까요? 지도 위 실시간 펄스 효과를 통해 활발한 지역과 반응을 한눈에 파악하세요.</p>
+          <div class="card-icon"><ion-icon name="newspaper"></ion-icon></div>
+          <h3>통합 피드</h3>
+          <p>지역, 건물, 뉴스, 청약 게시글과 인기 보관함을 한 화면에 모읍니다. 추천 피드에서 카테고리별 공간 정보를 빠르게 훑을 수 있습니다.</p>
         </div>
         <div class="card reveal">
           <div class="card-icon"><ion-icon name="flame"></ion-icon></div>
-          <h3>핫 랭킹</h3>
-          <p>지금 가장 뜨거운 장소는 어디? 실시간으로 업데이트되는 인기 게시글과 핫플레이스를 확인하세요.</p>
+          <h3>실시간 급상승 TOP 50</h3>
+          <p>건물, 지역, 뉴스, 청약을 활동 기준으로 묶어 지금 가장 뜨는 글과 공간을 순위로 확인할 수 있습니다.</p>
         </div>
         <div class="card reveal">
-          <div class="card-icon"><ion-icon name="save"></ion-icon></div>
-          <h3>콘텐츠 임시 저장</h3>
-          <p>정성껏 작성하던 글이 사라질 걱정은 이제 끝. 작성 중이던 내용은 자동으로 저장되어 언제든 이어서 쓸 수 있습니다.</p>
+          <div class="card-icon"><ion-icon name="calendar-outline"></ion-icon></div>
+          <h3>공공 프로그램 캘린더</h3>
+          <p>모집 시작, 마감 임박, 모집중 상태를 날짜별로 봅니다. 지역과 분야를 필터링해 지금 신청 가능한 프로그램을 놓치지 않습니다.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><ion-icon name="open-outline"></ion-icon></div>
+          <h3>상세 정보와 신청 연결</h3>
+          <p>모집 기간, 운영 기간, 장소, 대상, 정원, 비용을 한 화면에서 확인하고 공식 신청 페이지로 이동할 수 있습니다.</p>
         </div>
         <div class="card reveal">
           <div class="card-icon"><ion-icon name="folder-open"></ion-icon></div>
-          <h3>컬렉션으로 장소 큐레이션</h3>
-          <p>관심 건물과 콘텐츠를 컬렉션으로 묶어 저장하고, 공개/팔로워 공개 범위로 공유할 수 있습니다.</p>
+          <h3>보관함으로 장소 큐레이션</h3>
+          <p>관심 건물과 장소를 보관함으로 묶어 정리하고, 공개 또는 팔로워 공개 범위를 선택해 나만의 로컬 지도를 공유할 수 있습니다.</p>
         </div>
         <div class="card reveal">
-          <div class="card-icon"><ion-icon name="people"></ion-icon></div>
-          <h3>팔로우·팔로워 네트워크</h3>
-          <p>사용자 팔로우/팔로워 기반으로 컬렉션과 활동을 탐색하고, 사람을 중심으로 로컬 경험을 이어갈 수 있습니다.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="chatbubbles"></ion-icon></div>
-          <h3>100% 익명</h3>
-          <p>누구 눈치 볼 필요 없어요. 닉네임도 필요 없는 완전 익명으로 솔직한 속마음을 털어놓으세요.</p>
+          <div class="card-icon"><ion-icon name="search"></ion-icon></div>
+          <h3>사용자·보관함 검색</h3>
+          <p>닉네임 또는 보관함명을 입력해 원하는 사용자와 보관함을 찾고, 팔로우 관계를 통해 공간 탐색을 이어갈 수 있습니다.</p>
         </div>
       </div>
     </div>
@@ -948,22 +1060,22 @@
         <div class="step reveal">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>장소 찾기</h3>
-            <p>지도에서 궁금한 장소를 터치하거나 검색해보세요. 회사, 집, 학교 어디든 가능합니다.</p>
+            <h3>지도에서 지역과 건물 찾기</h3>
+            <p>현재 위치나 검색으로 관심 지역을 열고, 지도 위 시/군/구와 건물 마커를 눌러 커뮤니티 흐름을 확인하세요.</p>
           </div>
         </div>
         <div class="step reveal">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>이야기 읽기</h3>
-            <p>그 장소를 경험한 사람들의 솔직한 이야기를 확인하세요. 광고보다 생활 경험에 가까운 맥락을 빠르게 볼 수 있습니다.</p>
+            <h3>피드와 급상승으로 흐름 읽기</h3>
+            <p>지역, 건물, 뉴스, 청약, 보관함을 한 번에 보고 지금 활동이 많은 글과 공간을 빠르게 살펴보세요.</p>
           </div>
         </div>
         <div class="step reveal">
           <div class="step-number">3</div>
           <div class="step-content">
-            <h3>참여하기</h3>
-            <p>당신의 경험도 익명으로 공유하세요. 공감과 댓글로 새로운 이웃을 만나보세요.</p>
+            <h3>글쓰기, 보관함, 알림으로 이어가기</h3>
+            <p>같은 공간의 이야기를 남기고, 필요한 장소를 보관함으로 정리하고, 공공 프로그램 일정과 신청 페이지까지 이어가세요.</p>
           </div>
         </div>
       </div>
@@ -971,47 +1083,71 @@
   </section>
 
   <section class="showcase reveal">
+    <div class="showcase-intro">
+      <h2 class="section-title">1.0.7 화면 둘러보기</h2>
+      <p class="section-subtitle">사용자가 실제로 보게 되는 최신 iPhone 6.7형 화면을 반영했습니다</p>
+    </div>
     <div class="showcase-track">
-      <div class="screenshot"><img src="screenshots/1-feed.png" alt="Feed"></div>
-      <div class="screenshot"><img src="screenshots/2-explore.png" alt="Explore"></div>
-      <div class="screenshot"><img src="screenshots/3-map.png" alt="Map"></div>
-      <div class="screenshot"><img src="screenshots/4-building.png" alt="Building"></div>
-      <div class="screenshot"><img src="screenshots/5-poll.png" alt="Poll"></div>
-      <div class="screenshot"><img src="screenshots/6-qna.png" alt="QnA"></div>
+      <div class="screenshot"><img src="screenshots/marketing/01-region-map.png" alt="시군구 지역 커뮤니티 지도"></div>
+      <div class="screenshot"><img src="screenshots/marketing/02-region-entry.png" alt="지역 커뮤니티 입장 시트"></div>
+      <div class="screenshot"><img src="screenshots/marketing/03-building-map.png" alt="건물 커뮤니티 지도"></div>
+      <div class="screenshot"><img src="screenshots/marketing/04-building-entry.png" alt="건물 커뮤니티 입장 시트"></div>
+      <div class="screenshot"><img src="screenshots/marketing/05-feed.png" alt="통합 피드 화면"></div>
+      <div class="screenshot"><img src="screenshots/marketing/06-hot-ranking.png" alt="실시간 급상승 TOP 50"></div>
+      <div class="screenshot"><img src="screenshots/marketing/07-public-program-calendar.png" alt="공공 프로그램 캘린더"></div>
+      <div class="screenshot"><img src="screenshots/marketing/08-public-program-detail.png" alt="공공 프로그램 상세와 신청 페이지"></div>
       <!-- Duplicate -->
-      <div class="screenshot"><img src="screenshots/1-feed.png" alt="Feed"></div>
-      <div class="screenshot"><img src="screenshots/2-explore.png" alt="Explore"></div>
-      <div class="screenshot"><img src="screenshots/3-map.png" alt="Map"></div>
-      <div class="screenshot"><img src="screenshots/4-building.png" alt="Building"></div>
-      <div class="screenshot"><img src="screenshots/5-poll.png" alt="Poll"></div>
-      <div class="screenshot"><img src="screenshots/6-qna.png" alt="QnA"></div>
+      <div class="screenshot"><img src="screenshots/marketing/01-region-map.png" alt="시군구 지역 커뮤니티 지도"></div>
+      <div class="screenshot"><img src="screenshots/marketing/02-region-entry.png" alt="지역 커뮤니티 입장 시트"></div>
+      <div class="screenshot"><img src="screenshots/marketing/03-building-map.png" alt="건물 커뮤니티 지도"></div>
+      <div class="screenshot"><img src="screenshots/marketing/04-building-entry.png" alt="건물 커뮤니티 입장 시트"></div>
+      <div class="screenshot"><img src="screenshots/marketing/05-feed.png" alt="통합 피드 화면"></div>
+      <div class="screenshot"><img src="screenshots/marketing/06-hot-ranking.png" alt="실시간 급상승 TOP 50"></div>
+      <div class="screenshot"><img src="screenshots/marketing/07-public-program-calendar.png" alt="공공 프로그램 캘린더"></div>
+      <div class="screenshot"><img src="screenshots/marketing/08-public-program-detail.png" alt="공공 프로그램 상세와 신청 페이지"></div>
+    </div>
+  </section>
+
+  <section class="tablet-section reveal">
+    <div class="container tablet-grid">
+      <div class="tablet-copy">
+        <div class="tablet-label">ANDROID TABLET</div>
+        <h2 class="tablet-title">큰 화면에서도 지역 흐름을 넓게 확인</h2>
+        <p class="tablet-desc">
+          Android 10인치 화면에서는 시/군/구 지도와 질문 이동 안내를 더 넓게 볼 수 있습니다.
+          동네 단위 탐색과 커뮤니티 진입 흐름이 태블릿에서도 이어집니다.
+        </p>
+      </div>
+      <div class="tablet-frame">
+        <img src="screenshots/marketing/android-10-region-map.png" alt="Android 10인치 지역 커뮤니티 지도 화면">
+      </div>
     </div>
   </section>
 
   <!-- Why Section (New) -->
   <section class="why-section reveal">
     <div class="container">
-      <div class="section-title">공간은 많은데<br>이야기할 곳이 없었나요?</div>
+      <div class="section-title">정보는 흩어져 있는데<br>내 동네 기준으로 보기 어려웠나요?</div>
       
       <div class="why-grid">
         <div class="why-card">
-          <div style="font-size: 40px; margin-bottom: 24px;">🤔</div>
-          <h3>이런 경험 있으신가요?</h3>
+          <div style="font-size: 40px; margin-bottom: 24px;">🧭</div>
+          <h3>기존 탐색의 불편함</h3>
           <ul class="why-list">
-            <li>"이 건물 사람들은 무슨 생각을 할까?"</li>
-            <li>"매일 같은 지하철 타는 사람들, 궁금하다..."</li>
-            <li>"이 헬스장 기구는 좋은데, 얘기할 사람이 없네"</li>
-            <li>"예비군 왔는데 다들 폰만 보고 심심해..."</li>
+            <li>"우리 구에서 지금 사람들이 묻는 게 뭘까?"</li>
+            <li>"이 건물은 실제로 어떤 이야기가 오갈까?"</li>
+            <li>"뉴스, 청약, 지역 글을 따로 찾아보기 번거롭다"</li>
+            <li>"공공 프로그램 모집과 신청 페이지를 놓치기 쉽다"</li>
           </ul>
         </div>
         <div class="why-card">
           <div style="font-size: 40px; margin-bottom: 24px;">💡</div>
-          <h3>어디사니가 연결합니다</h3>
+          <h3>어디사니의 연결 방식</h3>
           <ul class="why-list">
-            <li>같은 공간에 있는 사람들의 자연스러운 소통</li>
-            <li>완전 익명으로 부담 없이 솔직하게</li>
-            <li>광고 없는 청정구역, 진짜 사용자들의 이야기</li>
-            <li>지도 기반으로 대한민국 모든 곳이 커뮤니티로</li>
+            <li>시/군/구와 건물을 지도에서 바로 커뮤니티로 연결</li>
+            <li>피드와 급상승으로 지금 볼 만한 흐름을 압축</li>
+            <li>보관함과 팔로우로 관심 공간을 다시 찾기 쉽게 정리</li>
+            <li>공공 프로그램 캘린더와 상세 화면으로 신청까지 연결</li>
           </ul>
         </div>
       </div>
@@ -1023,20 +1159,20 @@
     <div class="container">
       <div class="stats-grid reveal">
         <div class="stat-item">
-          <div class="stat-number">전국</div>
-          <div class="stat-label">지역 커뮤니티</div>
+          <div class="stat-number">1.0.7</div>
+          <div class="stat-label">최신 앱 화면 반영</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">수도권</div>
-          <div class="stat-label">건물 커뮤니티</div>
+          <div class="stat-number">5개</div>
+          <div class="stat-label">하단 주요 탭</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">완전 익명</div>
+          <div class="stat-number">TOP 50</div>
+          <div class="stat-label">실시간 급상승</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">Free</div>
-          <div class="stat-label">광고 없는 청정구역</div>
+          <div class="stat-number">일정</div>
+          <div class="stat-label">공공 프로그램 캘린더</div>
         </div>
       </div>
     </div>
@@ -1049,10 +1185,10 @@
       
       <div class="faq-item">
         <div class="faq-question">
-          <ion-icon name="finger-print"></ion-icon> 정말로 익명인가요?
+          <ion-icon name="finger-print"></ion-icon> 커뮤니티 글은 어떻게 보이나요?
         </div>
         <div class="faq-answer">
-          네, 어디사니는 회원가입 시 최소한의 소셜 로그인만 진행하며, 작성한 글쓴이를 식별할 수 있는 어떠한 정보도 노출하지 않습니다.
+          지역과 건물 맥락을 중심으로 읽을 수 있게 설계되어 있습니다. 사용자 검색, 프로필, 보관함 공개 범위가 있는 기능은 각 화면의 설정과 공개 상태를 따릅니다.
         </div>
       </div>
       
@@ -1067,10 +1203,10 @@
 
       <div class="faq-item">
         <div class="faq-question">
-          <ion-icon name="add-circle"></ion-icon> 내가 궁금한 건물/지역이 없어요.
+          <ion-icon name="calendar-outline"></ion-icon> 공공 프로그램은 어디서 신청하나요?
         </div>
         <div class="faq-answer">
-          지도에 없는 장소라도 '장소 추가 투표' 기능을 통해 신청해주시면, 심사를 거쳐 빠르게 커뮤니티를 열어드립니다.
+          캘린더나 프로그램 지도에서 상세 화면으로 들어가면 모집 기간, 장소, 비용을 확인하고 공식 신청 페이지를 열 수 있습니다.
         </div>
       </div>
     </div>
@@ -1081,31 +1217,31 @@
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 26px;">
         <h2 class="section-title">지금 다운로드하면 바로 체감되는 변화</h2>
-        <p class="section-subtitle">첫 실행부터 “왜 이제 알았지?”가 나오는 이유를 직접 확인해보세요.</p>
+        <p class="section-subtitle">지역, 건물, 일정, 사람을 오가는 흐름이 한 앱 안에서 이어집니다.</p>
       </div>
       <div class="conversion-grid">
         <div class="conversion-card reveal">
           <span class="conversion-eyebrow">CONNECTED COMMUNITY</span>
-          <h3 class="conversion-title">어디서든 연결되는<br>생활 커뮤니티</h3>
+          <h3 class="conversion-title">지역에서 건물까지<br>이어지는 커뮤니티</h3>
           <p class="conversion-desc">
-            회사, 카페, 지하철역, 자주 머무는 모든 공간에서 같은 경험을 겪는 사람들이
-            서로의 경험을 나누고 도움을 주고받는 연결형 커뮤니티를 만듭니다.
+            시/군/구 질문에서 출발해 건물별 댓글, 위치 확인, 첫 글쓰기까지
+            생활 공간 단위의 맥락을 자연스럽게 따라갈 수 있습니다.
           </p>
         </div>
         <div class="conversion-card reveal">
           <span class="conversion-eyebrow">CUSTOM MAP SHARING</span>
-          <h3 class="conversion-title">나만의 커스텀 지도를<br>쉽게 공유</h3>
+          <h3 class="conversion-title">보관함으로 정리하는<br>나만의 공간 지도</h3>
           <p class="conversion-desc">
-            관심 건물과 장소를 컬렉션으로 구성하고,
-            팔로우/팔로워 기반 공개 범위로 내 기준과 인사이트를 편하게 전달할 수 있습니다.
+            관심 건물과 장소를 보관함으로 구성하고,
+            공개 범위를 조절해 다른 사용자와 필요한 만큼 공유할 수 있습니다.
           </p>
         </div>
         <div class="conversion-card reveal">
           <span class="conversion-eyebrow">HYPER-LOCAL FEED</span>
-          <h3 class="conversion-title">시군구별 맞춤 소식과<br>건물 단위 의사결정 정보</h3>
+          <h3 class="conversion-title">피드와 캘린더로 보는<br>로컬 정보 흐름</h3>
           <p class="conversion-desc">
-            시군구 단위로 원하는 소식을 내 기호에 맞게 받고,
-            궁금한 건물의 이야기부터 살아갈 집을 고를 때 필요한 건물 맥락까지 확인할 수 있습니다.
+            급상승 글, 지역 뉴스, 청약, 공공 프로그램 일정을 한 번에 보고
+            필요한 신청 페이지나 커뮤니티로 바로 이동할 수 있습니다.
           </p>
           <a href="#download" class="mini-cta">
             <ion-icon name="arrow-down-circle-outline"></ion-icon>
@@ -1121,31 +1257,31 @@
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 26px;">
         <h2 class="section-title">어디사니가 실제로 바꾸는 것</h2>
-        <p class="section-subtitle">찰나에 스치던 공간을, 연결과 도움이 오가는 커뮤니티로 바꿉니다.</p>
+        <p class="section-subtitle">흩어진 로컬 정보를 지도, 피드, 캘린더 기준으로 다시 묶습니다.</p>
       </div>
       <div class="value-proof-grid">
         <div class="value-proof-card reveal">
           <span class="value-proof-label">FOR DAILY LIFE</span>
-          <h3 class="value-proof-title">매일 지나는 공간을<br>의미 있는 정보 자산으로</h3>
+          <h3 class="value-proof-title">매일 지나는 동네를<br>질문 가능한 공간으로</h3>
           <p class="value-proof-desc">
-            스쳐 지나가던 건물이 내 생활 데이터가 됩니다.
-            출근 동선, 단골 장소, 자주 머무는 구역의 변화를 더 빨리 파악할 수 있습니다.
+            지도에서 보고 있는 위치를 지역 커뮤니티로 전환해
+            주변 질문과 반응을 바로 확인할 수 있습니다.
           </p>
         </div>
         <div class="value-proof-card reveal">
           <span class="value-proof-label">FOR HOME DECISION</span>
-          <h3 class="value-proof-title">살 집을 고민할 때 필요한<br>건물 단위 맥락</h3>
+          <h3 class="value-proof-title">건물 단위로 보는<br>생활 맥락</h3>
           <p class="value-proof-desc">
-            지도에서 궁금한 건물을 눌러 실제 체감 이야기를 확인하세요.
-            숫자 스펙만으로는 보이지 않는 생활 맥락이 선택 기준이 됩니다.
+            궁금한 건물을 눌러 위치와 댓글 흐름을 확인하고,
+            필요한 건물은 보관함으로 다시 찾아볼 수 있습니다.
           </p>
         </div>
         <div class="value-proof-card reveal">
           <span class="value-proof-label">FOR LOCAL SIGNAL</span>
-          <h3 class="value-proof-title">시군구별 소식을<br>내 취향대로 수신</h3>
+          <h3 class="value-proof-title">공공 프로그램 일정을<br>놓치지 않게</h3>
           <p class="value-proof-desc">
-            지역 단위로 필요한 정보만 받아보며 과잉 알림을 줄일 수 있습니다.
-            내가 관심 있는 공간과 주제 중심으로 로컬 피드를 설계해보세요.
+            모집 시작, 마감 임박, 운영 시작 정보를 캘린더에서 확인하고
+            상세 화면에서 공식 신청 페이지로 이어갈 수 있습니다.
           </p>
         </div>
       </div>
@@ -1156,10 +1292,10 @@
   <section class="hero-cta">
     <div class="container">
       <div class="hero-cta-box reveal">
-        <h2 class="section-title">그 공간의 첫 번째 주인공이 되어주세요</h2>
+        <h2 class="section-title">내 동네와 건물의 흐름을 오늘 열어보세요</h2>
         <p class="section-subtitle" style="margin-bottom: 40px;">
-          아직 조용한 공간이 있나요?<br>
-          당신의 한 줄이 그 공간의 첫 기준점이 됩니다.
+          지도에서 확인하고, 피드에서 비교하고,<br>
+          캘린더에서 필요한 일정까지 이어가세요.
         </p>
         <div class="cta-group">
           <a href="#download" class="btn btn-primary">
@@ -1174,10 +1310,10 @@
   <!-- Download Section -->
   <section class="download reveal" id="download">
     <div class="container">
-      <h2 class="download-title">지금, 당신이 궁금한 그 건물, 그 지역의 진짜 반응을 열어보세요</h2>
+      <h2 class="download-title">지금, 당신이 궁금한 지역과 건물의 흐름을 열어보세요</h2>
       <p class="download-desc">
-        검색으로 찾기 전에, 지도로 먼저 확인하세요.<br>
-        공간의 맥락을 아는 사람이 선택을 더 빨리 합니다.
+        동네 질문, 건물 커뮤니티, 급상승 글, 공공 프로그램 일정을<br>
+        어디사니 1.0.7에서 바로 확인하세요.
       </p>
       
       <div class="store-badges">
@@ -1207,7 +1343,7 @@
         <a href="support.html">고객지원</a>
         <a href="contact.html">문의하기</a>
       </div>
-      <p class="copyright">© 2025 Eodisani. All rights reserved.</p>
+      <p class="copyright">© 2026 Eodisani. All rights reserved.</p>
     </div>
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
