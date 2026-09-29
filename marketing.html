@@ -117,6 +117,9 @@
     .flow-row > span { font-size: 14px; color: var(--blue); font-weight: 700; }
     .flow-row h3 { margin: 0; font-size: 22px; letter-spacing: -.03em; }
     .flow-row p { margin: 0; color: var(--muted); font-size: 15px; }
+    .flow-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .flow-tags span { padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: #c4d7ee; font-size: 12px; }
+    .flow-note { margin: 21px 0 0; color: var(--muted); font-size: 13px; }
     .questions { background: #0c1119; }
     .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .faq-item { border-top: 1px solid rgba(121,176,255,.55); padding: 22px 4px; }
@@ -161,7 +164,7 @@
       .experience-grid, .faq { grid-template-columns: 1fr; }
       .experience-card, .experience-card:first-child { min-height: 255px; grid-column: auto; }
       .flow-row { grid-template-columns: 44px 1fr; gap: 7px 16px; padding: 25px 0; }
-      .flow-row p { grid-column: 2; }
+      .flow-copy { grid-column: 2; }
       .download { padding-block: 90px; }
       .footer-content { align-items: flex-start; flex-direction: column; }
     }
@@ -211,7 +214,7 @@
             <div class="preview-tabs"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>청약정보</span></div>
             <div class="calendar-heading"><strong>일정 살펴보기</strong><small>캘린더 · 지도</small></div>
             <div class="calendar"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span><span class="day">01</span><span class="day">02</span><span class="day">03</span><span class="day">04</span><span class="day">05</span><span class="day">06</span><span class="day">07</span><span class="day">08</span><span class="day">09</span><span class="event">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span></div>
-            <div class="preview-event"><ion-icon name="compass-outline"></ion-icon><div><strong>공공 체험 프로그램</strong><small>지역과 날짜로 찾아보기</small></div></div>
+            <div class="preview-event"><ion-icon name="compass-outline"></ion-icon><div><strong>공공 체험 프로그램</strong><small>시작 · 마감 · 모집중 일정</small></div></div>
           </div>
           <div class="float-card float-left" aria-hidden="true"><span class="float-label">이웃톡 / 지역톡</span><strong>이웃들의 고민과 경험을 나눠요</strong><small>질문 · 투표 · 지역 이야기</small></div>
           <div class="float-card float-right" aria-hidden="true"><span class="float-label">지금썰 / 추천 피드</span><strong>지금 올라온 이야기를 한눈에</strong><small>추천 글 · 급상승</small></div>
@@ -233,12 +236,14 @@
 
     <section class="section flow" id="how-it-works" aria-labelledby="flow-title">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">EXPLORE AT YOUR PACE</span><h2 id="flow-title">관심 있는 것부터 시작하세요.</h2><p>정보를 찾고, 이웃에게 묻고, 새로운 이야기를 발견하는 흐름.</p></div>
+        <div class="section-heading"><span class="eyebrow">EXPLORE WITH CONTEXT</span><h2 id="flow-title">관심의 기준을 더 세밀하게.</h2><p>날짜, 지역, 분야와 시설 유형. 필요한 맥락으로 정보를 좁혀보세요.</p></div>
         <div class="flow-list">
-          <div class="flow-row"><span>01</span><h3>일정을 찾고 싶다면</h3><p>알쓸픽에서 공공 체험 프로그램의 시작일과 모집 마감일을 확인하세요. 공식 신청 링크가 있는 프로그램은 상세 화면에서 이동할 수 있습니다.</p></div>
-          <div class="flow-row"><span>02</span><h3>직접 물어보고 싶다면</h3><p>이웃톡의 지역톡에서 질문과 투표를 살펴보세요. 건물 이야기가 궁금할 때는 건물톡으로 전환할 수 있습니다.</p></div>
-          <div class="flow-row"><span>03</span><h3>새로운 글이 궁금하다면</h3><p>지금썰에서 추천 피드와 급상승 이야기를 둘러보고 관심 있는 글로 이동하세요.</p></div>
+          <div class="flow-row"><span>01</span><h3>프로그램을 찾을 때</h3><div class="flow-copy"><p>알쓸픽에서 지역, 모집 상태, 비용, 분야, 참여 대상을 골라보세요. 캘린더에는 프로그램 시작과 모집 마감 일정이 표시됩니다. 공식 신청 링크가 제공된 경우에만 상세 화면에서 이동할 수 있습니다.</p><div class="flow-tags" aria-label="프로그램 탐색 기준"><span>지역</span><span>모집중</span><span>무료</span><span>분야 · 대상</span></div></div></div>
+          <div class="flow-row"><span>02</span><h3>아이와 갈 곳을 찾을 때</h3><div class="flow-copy"><p>육아히든카드 지도에서 지역과 시설 유형을 선택해 장소를 찾고, 목록에서 이름과 주소를 확인하세요. 육아히든카드는 캘린더가 아닌 지도에서 탐색합니다.</p><div class="flow-tags" aria-label="육아 장소 탐색 기준"><span>지역</span><span>시설 유형</span><span>지도 · 장소 상세</span></div></div></div>
+          <div class="flow-row"><span>03</span><h3>새 소식을 살펴볼 때</h3><div class="flow-copy"><p>부동산뉴스는 정책·시장·지역 분류로, 청약정보는 공급 유형과 접수 기간으로 살펴보세요. 알쓸픽의 캘린더와 지도 보기를 오가며 찾을 수 있습니다.</p><div class="flow-tags" aria-label="뉴스와 청약 탐색 기준"><span>기사 분류</span><span>공급 유형</span><span>청약접수 기간</span></div></div></div>
+          <div class="flow-row"><span>04</span><h3>이웃의 경험이 궁금할 때</h3><div class="flow-copy"><p>이웃톡은 지역별 질문과 투표, 건물별 대화를 나눠 보여줍니다. 대화와 지도 보기를 전환하고, 지금썰의 추천 피드와 급상승 글에서 관심 있는 이야기로 이어가세요.</p><div class="flow-tags" aria-label="이웃 이야기 탐색 방식"><span>지역톡 · 건물톡</span><span>질문 · 투표</span><span>대화 · 지도</span></div></div></div>
         </div>
+        <p class="flow-note">표시되는 정보와 신청 링크는 지역, 수집 자료, 제공 상태에 따라 달라질 수 있습니다.</p>
       </div>
     </section>
 
