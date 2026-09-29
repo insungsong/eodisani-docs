@@ -3,1244 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>어디사니 - 우리 동네 정보와 이웃 이야기</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="공공 체험 프로그램과 동네 소식을 캘린더·지도에서 발견하고, 이웃톡에서 지역 이야기를 나눠요. 육아히든카드, 부동산뉴스, 청약정보와 지금썰도 어디사니에서 만나보세요.">
+  <meta name="theme-color" content="#080b11">
+  <title>어디사니 - 지역의 정보와 이웃의 이야기</title>
+  <meta name="description" content="알쓸픽에서 공공 체험 프로그램, 육아히든카드, 부동산뉴스와 청약정보를 살펴보고 이웃톡에서 지역 이야기를 나눠요. 지금썰에서 새로운 소식도 만나보세요.">
   <meta name="keywords" content="어디사니, 알쓸픽, 이웃톡, 지금썰, 공공 체험 프로그램, 육아히든카드, 부동산뉴스, 청약정보">
+  <link rel="canonical" href="https://eodisani.com/">
   <link rel="icon" type="image/png" href="favicon.png">
-
-  
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="어디사니 - 우리 동네 정보와 이웃 이야기">
-  <meta property="og:description" content="알쓸픽에서 동네 프로그램과 소식을 발견하고, 이웃톡에서 이야기를 나눠요.">
+  <meta property="og:title" content="어디사니 - 지역의 정보와 이웃의 이야기">
+  <meta property="og:description" content="필요한 지역 정보를 발견하고, 이웃의 이야기를 만나보세요.">
   <meta property="og:image" content="https://one-shot-one-map.s3.ap-northeast-2.amazonaws.com/kakao-talk/og_image_black.png">
-  <meta property="og:url" content="https://eodisani.com">
-  
-  <!-- Fonts & Icons -->
+  <meta property="og:url" content="https://eodisani.com/">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/ionicons.min.css">
-  
   <style>
     :root {
-      --bg-dark: #050507;
-      --bg-card: rgba(22, 22, 26, 0.6);
-      /* Meta Deep Blue Theme */
-      --primary: #0066FF; 
-      --primary-glow: rgba(0, 102, 255, 0.4);
-      --accent: #0668E1; 
-      --text-main: #FFFFFF;
-      --text-muted: #989899;
-      --border: rgba(255, 255, 255, 0.08);
-      --glass: blur(20px);
+      color-scheme: dark;
+      --background: #080b11;
+      --surface: #111720;
+      --surface-raised: #19222e;
+      --line: rgba(215, 229, 250, .13);
+      --text: #f4f7fc;
+      --muted: #a8b4c5;
+      --blue: #79b0ff;
+      --blue-strong: #3182f6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--background); color: var(--text); font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+    ion-icon { vertical-align: -.16em; }
+    .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: rgba(8, 11, 17, .9); border-bottom: 1px solid var(--line); backdrop-filter: blur(20px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; font-size: 19px; letter-spacing: -.04em; text-decoration: none; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 34px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .nav-download { padding: 10px 17px; border-radius: 999px; background: var(--text); color: #111720; font-weight: 700; }
+    .nav-links .nav-download:hover { color: #111720; background: #dceaff; }
+    main section { scroll-margin-top: 88px; }
+    .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 78% 43%, rgba(49, 130, 246, .19), transparent 45%), linear-gradient(140deg, rgba(32, 46, 66, .32), transparent 44%); }
+    .hero-grid { position: relative; min-height: 690px; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 44px; align-items: center; padding-block: 92px 110px; }
+    .eyebrow { color: var(--blue); font-size: 13px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(48px, 5.4vw, 78px); line-height: 1.14; letter-spacing: -.065em; margin: 22px 0 26px; font-weight: 800; word-break: keep-all; }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy h1 strong { color: var(--blue); font-weight: inherit; }
+    .hero-copy > p { max-width: 510px; font-size: 19px; line-height: 1.8; color: var(--muted); word-break: keep-all; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-size: 15px; font-weight: 750; transition: transform .2s, background .2s, border-color .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--blue-strong); color: #fff; }
+    .button-primary:hover { background: #196de5; }
+    .button-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .button-secondary:hover { border-color: rgba(121,176,255,.5); }
+    .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 28px; color: var(--muted); font-size: 13px; }
+    .hero-note ion-icon { color: var(--blue); font-size: 17px; }
+
+    /* Editorial illustration of the three product surfaces; not an app screenshot. */
+    .visual { position: relative; height: 535px; min-width: 0; display: flex; align-items: center; justify-content: center; }
+    .visual::before { content: ''; position: absolute; width: 430px; height: 430px; max-width: 85%; border: 1px solid rgba(121,176,255,.19); border-radius: 50%; box-shadow: 0 0 0 60px rgba(121,176,255,.025), 0 0 0 120px rgba(121,176,255,.018); }
+    .preview { position: relative; width: min(365px, 78%); border: 1px solid rgba(215,229,250,.23); border-radius: 29px; padding: 23px; background: #18212d; box-shadow: 0 35px 95px rgba(0,0,0,.38); transform: rotate(-4deg); }
+    .preview-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+    .preview-top strong { font-size: 20px; letter-spacing: -.04em; }
+    .preview-top span { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(121,176,255,.13); color: var(--blue); }
+    .preview-caption { color: var(--muted); font-size: 13px; margin: 19px 0 13px; }
+    .preview-tabs { display: flex; gap: 7px; margin-bottom: 18px; }
+    .preview-tabs span { white-space: nowrap; font-size: 11px; padding: 6px 8px; border-radius: 7px; color: var(--muted); border: 1px solid var(--line); }
+    .preview-tabs span:first-child { background: rgba(49,130,246,.22); color: #c7ddff; border-color: rgba(121,176,255,.36); }
+    .calendar-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 11px; font-size: 14px; }
+    .calendar-heading small { color: var(--muted); font-size: 11px; }
+    .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+    .calendar span { display: grid; place-items: center; height: 33px; font-size: 11px; color: var(--muted); border-radius: 8px; }
+    .calendar .day { color: var(--text); background: rgba(255,255,255,.05); }
+    .calendar .event { color: #fff; background: var(--blue-strong); }
+    .preview-event { margin-top: 15px; padding: 13px; display: flex; gap: 11px; align-items: center; background: #233348; border: 1px solid rgba(121,176,255,.24); border-radius: 13px; }
+    .preview-event ion-icon { color: var(--blue); font-size: 22px; }
+    .preview-event strong { display: block; font-size: 13px; }
+    .preview-event small { display: block; color: var(--muted); font-size: 11px; }
+    .float-card { position: absolute; border: 1px solid rgba(215,229,250,.24); background: #202b39; box-shadow: 0 22px 55px rgba(0,0,0,.3); border-radius: 17px; padding: 15px 18px; max-width: 215px; }
+    .float-card .float-label { display: block; font-size: 11px; color: var(--blue); font-weight: 750; margin-bottom: 5px; }
+    .float-card strong { display: block; font-size: 15px; line-height: 1.4; }
+    .float-card small { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .float-left { left: 0; top: 67px; transform: rotate(4deg); }
+    .float-right { right: 0; bottom: 48px; transform: rotate(5deg); }
+    .visual-caption { position: absolute; bottom: 0; right: 0; color: #7e8da3; font-size: 11px; }
+
+    .section { padding-block: 112px; }
+    .section-heading { max-width: 700px; margin-bottom: 54px; }
+    .section-heading h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1.23; letter-spacing: -.055em; margin: 15px 0 17px; word-break: keep-all; }
+    .section-heading p { color: var(--muted); font-size: 17px; word-break: keep-all; }
+    .experience { background: #0c1119; }
+    .experience-grid { display: grid; gap: 16px; grid-template-columns: 1.2fr 1fr 1fr; }
+    .experience-card { min-height: 330px; padding: 33px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); overflow: hidden; position: relative; }
+    .experience-card:first-child { background: linear-gradient(145deg, #18324f, #111c2a 68%); border-color: rgba(121,176,255,.28); }
+    .experience-card::after { content: ''; position: absolute; right: -62px; top: -62px; width: 200px; height: 200px; border: 1px solid rgba(121,176,255,.15); border-radius: 50%; box-shadow: 0 0 0 42px rgba(121,176,255,.035), 0 0 0 84px rgba(121,176,255,.025); }
+    .experience-card > * { position: relative; z-index: 1; }
+    .card-index { display: flex; justify-content: space-between; color: var(--blue); font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+    .card-index ion-icon { font-size: 23px; }
+    .experience-card h3 { font-size: 30px; letter-spacing: -.045em; line-height: 1.3; margin-bottom: 9px; }
+    .experience-card p { color: var(--muted); font-size: 15px; margin: 0; word-break: keep-all; }
+    .experience-card:first-child p { color: #c1d1e6; }
+    .detail-strip { margin-top: 26px; padding-top: 17px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 10px; color: #c3d7f1; font-size: 12px; }
+    .detail-strip span + span::before { content: '·'; margin-right: 10px; color: #6e829c; }
+    .flow { border-top: 1px solid var(--line); }
+    .flow-list { border-top: 1px solid var(--line); }
+    .flow-row { display: grid; grid-template-columns: 85px minmax(0, .7fr) minmax(0, 1.3fr); gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); align-items: center; }
+    .flow-row > span { font-size: 14px; color: var(--blue); font-weight: 700; }
+    .flow-row h3 { margin: 0; font-size: 22px; letter-spacing: -.03em; }
+    .flow-row p { margin: 0; color: var(--muted); font-size: 15px; }
+    .questions { background: #0c1119; }
+    .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .faq-item { border-top: 1px solid rgba(121,176,255,.55); padding: 22px 4px; }
+    .faq-item h3 { font-size: 18px; line-height: 1.45; margin-bottom: 13px; }
+    .faq-item p { color: var(--muted); margin-bottom: 0; font-size: 15px; }
+    .download { padding-block: 128px; text-align: center; border-top: 1px solid var(--line); background: radial-gradient(ellipse at 50% 100%, rgba(49,130,246,.14), transparent 60%); }
+    .download h2 { font-size: clamp(36px, 4.5vw, 58px); line-height: 1.25; letter-spacing: -.055em; margin: 16px 0; word-break: keep-all; }
+    .download p { color: var(--muted); font-size: 17px; margin-bottom: 36px; }
+    .store-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .store-link { display: flex; align-items: center; gap: 14px; padding: 13px 22px; min-width: 190px; min-height: 70px; border: 1px solid rgba(215,229,250,.24); border-radius: 13px; text-decoration: none; background: #151c27; text-align: left; transition: transform .2s, border-color .2s; }
+    .store-link:hover { transform: translateY(-3px); border-color: var(--blue); }
+    .store-link ion-icon { font-size: 29px; }
+    .store-link small { display: block; color: var(--muted); font-size: 11px; line-height: 1.3; }
+    .store-link strong { display: block; font-size: 18px; line-height: 1.3; }
+    footer { border-top: 1px solid var(--line); padding: 36px 0 42px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    .copyright { margin: 0; color: #77869b; font-size: 12px; }
+    @media (max-width: 1000px) {
+      .hero-grid { gap: 24px; }
+      .float-left { left: -5px; }
+      .float-right { right: -5px; }
+      .experience-grid { grid-template-columns: 1fr 1fr; }
+      .experience-card:first-child { grid-column: 1 / -1; min-height: 260px; }
+    }
+    @media (max-width: 740px) {
+      .container { width: min(100% - 36px, 520px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 15px; }
+      .nav-links a:not(.nav-download) { display: none; }
+      .hero-grid { min-height: 0; grid-template-columns: 1fr; padding-block: 78px 70px; gap: 45px; }
+      h1 { font-size: clamp(42px, 10vw, 56px); }
+      .hero-copy > p { font-size: 17px; }
+      .visual { height: 455px; }
+      .preview { width: min(340px, 81%); padding: 19px; }
+      .float-left { top: 23px; }
+      .float-right { bottom: 22px; }
+      .section { padding-block: 78px; }
+      .section-heading { margin-bottom: 35px; }
+      .experience-grid, .faq { grid-template-columns: 1fr; }
+      .experience-card, .experience-card:first-child { min-height: 255px; grid-column: auto; }
+      .flow-row { grid-template-columns: 44px 1fr; gap: 7px 16px; padding: 25px 0; }
+      .flow-row p { grid-column: 2; }
+      .download { padding-block: 90px; }
+      .footer-content { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .visual { height: 425px; }
+      .preview { width: 86%; }
+      .float-card { max-width: 165px; padding: 11px 13px; }
+      .float-card strong { font-size: 12px; }
+      .float-right { right: -4px; bottom: 16px; }
+      .float-left { left: -5px; top: 0; }
+      .preview-tabs span { font-size: 10px; padding-inline: 6px; }
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: 'Pretendard', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* Background Gradients */
-    .bg-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      background: 
-        radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(6, 104, 225, 0.08) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header & Nav */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 20px 0;
-      transition: all 0.3s ease;
-    }
-
-    header.scrolled {
-      background: rgba(5, 5, 7, 0.8);
-      backdrop-filter: var(--glass);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 0;
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 20px;
-      background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 80px;
-      padding-bottom: 60px;
-      position: relative;
-    }
-
-    .app-icon-wrapper {
-      margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .app-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
-      animation: float 6s ease-in-out infinite;
-      position: relative;
-      z-index: 2;
-    }
-
-    .app-icon-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 160px;
-      height: 160px;
-      background: var(--primary);
-      filter: blur(60px);
-      opacity: 0.3;
-      z-index: 1;
-      animation: pulse 4s ease-in-out infinite;
-    }
-
-    h1 {
-      font-size: clamp(42px, 5vw, 72px);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: 0;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #B9D4FF;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0;
-      background: rgba(0, 102, 255, 0.12);
-      border: 1px solid rgba(0, 102, 255, 0.28);
-      border-radius: 999px;
-      padding: 8px 14px;
-      margin-bottom: 20px;
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #FFF 0%, #A5A5A5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .text-highlight {
-      background: linear-gradient(135deg, #0066FF 0%, #0668E1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-desc {
-      font-size: clamp(18px, 2vw, 22px);
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 48px;
-    }
-
-    .surface-badges {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 28px auto 0;
-      max-width: 780px;
-    }
-
-    .surface-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.06);
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 13px;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 36px;
-      border-radius: 100px;
-      font-size: 17px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: white;
-      color: black;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    /* Story Section */
-    .story-section {
-      padding: 180px 0 100px;
-      text-align: center;
-    }
-
-    .story-text {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.5;
-      margin-bottom: 40px;
-    }
-    
-    .story-text span {
-      display: block;
-      margin-bottom: 16px;
-    }
-    
-    .story-highlight {
-      color: white;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-
-    /* Stats Section */
-    .stats-section {
-      padding: 60px 0 120px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
-
-    .stat-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px 16px;
-      backdrop-filter: blur(20px);
-    }
-
-    .stat-number {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Use Cases Tabs */
-    .use-cases {
-      padding: 100px 0;
-    }
-    
-    .section-title {
-      font-size: 32px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-muted);
-      margin-bottom: 60px;
-    }
-
-    .use-case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .use-case-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .use-case-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      box-shadow: 0 8px 32px rgba(0, 102, 255, 0.15);
-    }
-    
-    .use-case-emoji {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-
-    .use-case-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: white;
-    }
-    
-    .use-case-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* How It Works */
-    .how-it-works {
-      padding: 120px 0;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .step {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-    }
-
-    .step-number {
-      flex-shrink: 0;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: 800;
-      color: white;
-      box-shadow: 0 10px 30px var(--primary-glow);
-    }
-
-    .step-content h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .step-content p {
-      color: var(--text-muted);
-      font-size: 16px;
-    }
-
-    /* Why Section (New) */
-    .why-section {
-      padding: 100px 0;
-    }
-    
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    
-    .why-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 40px;
-    }
-    
-    .why-list {
-      list-style: none;
-      margin-top: 20px;
-    }
-    
-    .why-list li {
-      padding: 12px 0;
-      padding-left: 24px;
-      position: relative;
-      color: var(--text-muted);
-    }
-    
-    .why-list li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    /* Features Grid */
-    .features {
-      padding: 100px 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 40px;
-      border-radius: 32px;
-      backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      background: rgba(30, 30, 35, 0.8);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
-    }
-
-    .card-icon {
-      font-size: 40px;
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .card h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
-      color: var(--text-main);
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      padding: 100px 0;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-    }
-
-    .faq-question {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .faq-answer {
-      color: var(--text-muted);
-      font-size: 16px;
-      padding-left: 32px;
-    }
-
-    /* Conversion Section */
-    .conversion-section {
-      padding: 40px 0 80px;
-    }
-
-    .conversion-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .conversion-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px 24px;
-      backdrop-filter: blur(20px);
-    }
-
-    .conversion-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--primary);
-      margin-bottom: 10px;
-      letter-spacing: 0;
-      font-weight: 700;
-    }
-
-    .conversion-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .conversion-desc {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .mini-cta {
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(0, 102, 255, 0.18);
-      border: 1px solid rgba(0, 102, 255, 0.35);
-      transition: all 0.2s ease;
-    }
-
-    .mini-cta:hover {
-      background: rgba(0, 102, 255, 0.3);
-      transform: translateY(-1px);
-    }
-
-    /* Value Proof Section */
-    .value-proof-section {
-      padding: 10px 0 70px;
-    }
-
-    .value-proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .value-proof-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 26px 24px;
-      backdrop-filter: blur(16px);
-    }
-
-    .value-proof-label {
-      font-size: 12px;
-      color: #9FC3FF;
-      font-weight: 700;
-      letter-spacing: 0;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-
-    .value-proof-title {
-      font-size: 21px;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: 10px;
-    }
-
-    .value-proof-desc {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* Hero CTA */
-    .hero-cta {
-      padding: 120px 0;
-      text-align: center;
-    }
-
-    .hero-cta-box {
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(6, 104, 225, 0.1) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 40px;
-      padding: 80px 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-cta-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.2), transparent 50%);
-      pointer-events: none;
-    }
-
-    /* Download Section */
-    .download {
-      padding: 120px 0;
-      text-align: center;
-      position: relative;
-    }
-    
-    .download-title {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
-    
-    .download-desc {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-    }
-
-    .store-badges {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      padding: 16px 32px;
-      border-radius: 20px;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .store-badge:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-4px);
-      border-color: var(--primary);
-    }
-    
-    .store-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 1.2;
-    }
-    
-    .store-label {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 4px;
-    }
-    
-    .store-name {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    /* Footer */
-    footer {
-      padding: 80px 0 40px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-main);
-    }
-
-    .copyright {
-      color: rgba(255, 255, 255, 0.2);
-      font-size: 13px;
-    }
-    
-    /* Animations */
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-10px) rotate(2deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
-    }
-
-    .js-reveal .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .js-reveal .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
-      .app-icon, .app-icon-glow { animation: none; }
-    }
-
-    @media (max-width: 768px) {
-      .hero { padding-top: 40px; }
-      .app-icon { width: 100px; height: 100px; }
-      .grid { grid-template-columns: 1fr; }
-      .cta-group { flex-direction: column; width: 100%; padding: 0 20px; }
-      .btn { width: 100%; justify-content: center; }
-      .story-text { font-size: 20px; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .step { flex-direction: column; gap: 16px; align-items: center; text-align: center; }
-
-      .why-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
-      .why-card { padding: 32px 24px; }
-      .conversion-grid { grid-template-columns: 1fr; }
-      .value-proof-grid { grid-template-columns: 1fr; }
-      .surface-badges { justify-content: flex-start; padding: 0 20px; }
-      
-      .store-badges { flex-direction: column; width: 100%; padding: 0 20px; }
-      .store-badge { width: 100%; justify-content: center; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-
-  <div class="bg-gradient"></div>
-
-  <header>
-    <div class="container nav-content">
-      <div class="logo">어디사니</div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="어디사니 처음으로"><img src="ios_icon.png" alt="">어디사니</a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#features">서비스 소개</a>
+        <a href="#how-it-works">이용 방법</a>
+        <a class="nav-download" href="#download">앱 다운로드</a>
+      </nav>
     </div>
   </header>
-
-  <section class="hero">
-    <div class="container">
-      <div class="reveal">
-        <div class="app-icon-wrapper">
-          <div class="app-icon-glow"></div>
-          <img src="ios_icon.png" alt="어디사니 앱 아이콘" class="app-icon">
-        </div>
-
-        <div class="hero-kicker">
-          <ion-icon name="sparkles-outline"></ion-icon>
-          우리 동네 정보와 이웃 이야기
-        </div>
-        
-        <h1>
-          <span class="text-gradient">동네 정보부터</span><br>
-          <span class="text-highlight">이웃 이야기까지</span>
-        </h1>
-        
-        <p class="hero-desc">
-          공공 체험 프로그램과 동네 소식을 캘린더·지도에서 찾고,<br>
-          지역 이웃과 이야기해요. 건물 탐색은 원할 때 시작하세요.
-        </p>
-
-        <div class="cta-group">
-          <a href="#download" class="btn btn-primary">
-            <ion-icon name="arrow-down-circle-outline"></ion-icon>
-            앱 다운로드
-          </a>
-          <a href="#features" class="btn btn-glass">
-            <ion-icon name="information-circle-outline"></ion-icon>
-            더 알아보기
-          </a>
-        </div>
-
-        <div class="surface-badges" aria-label="어디사니 주요 탭">
-          <span class="surface-pill"><ion-icon name="people-outline"></ion-icon>이웃톡</span>
-          <span class="surface-pill"><ion-icon name="calendar-outline"></ion-icon>알쓸픽</span>
-          <span class="surface-pill"><ion-icon name="newspaper-outline"></ion-icon>지금썰</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Story Section -->
-  <section class="story-section" id="story">
-    <div class="container">
-      <div class="story-text reveal">
-        <span class="story-highlight">내 주변에서 무엇을 할까?</span>
-        <span>이번 주 우리 동네 소식은 뭘까?</span>
-        <span>이웃의 이야기는 어디서 볼까?</span>
-        <span style="font-size: 20px; color: var(--text-muted); font-weight: 400; margin-top: 24px;">
-          알쓸픽에서 일정과 장소를 찾고, 이웃톡에서 지역 이야기를 나누고,<br>
-          지금썰에서 지금 올라오는 글과 급상승 이야기를 둘러보세요.
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases: Rich Content Restored -->
-  <section class="use-cases">
-    <div class="container">
-      <div class="reveal">
-        <h2 class="section-title">알쓸픽, 이웃톡, 지금썰</h2>
-        <p class="section-subtitle">동네 정보를 발견하고 이웃과 연결되는 세 가지 시작점</p>
-      </div>
-
-      <div class="use-case-grid">
-        <div class="use-case-card reveal">
-          <div class="use-case-emoji">💬</div>
-          <h3 class="use-case-title">이웃톡 · 지역 이야기</h3>
-          <p class="use-case-desc">우리 지역을 지도에서 찾아 질문과 대화를 둘러보고, 닉네임으로 이웃과 이야기를 나눠요.</p>
-        </div>
-        <div class="use-case-card reveal" style="transition-delay: 0.1s">
-          <div class="use-case-emoji">📅</div>
-          <h3 class="use-case-title">알쓸픽 · 공공 체험 프로그램</h3>
-          <p class="use-case-desc">지역별 프로그램 일정을 캘린더나 지도에서 확인하고, 신청 링크가 있는 프로그램은 상세 화면에서 이동해요.</p>
-        </div>
-        <div class="use-case-card reveal" style="transition-delay: 0.2s">
-          <div class="use-case-emoji">🧸</div>
-          <h3 class="use-case-title">알쓸픽 · 육아히든카드</h3>
-          <p class="use-case-desc">아이와 갈 만한 동네 장소를 지도에서 찾고 관심 지역을 골라 살펴봐요.</p>
-        </div>
-        <div class="use-case-card reveal" style="transition-delay: 0.3s">
-          <div class="use-case-emoji">📰</div>
-          <h3 class="use-case-title">알쓸픽 · 뉴스와 청약</h3>
-          <p class="use-case-desc">부동산뉴스와 청약정보를 날짜별로 살펴보고, 지도 보기로 지역을 탐색해요.</p>
-        </div>
-        <div class="use-case-card reveal" style="transition-delay: 0.4s">
-          <div class="use-case-emoji">🔥</div>
-          <h3 class="use-case-title">지금썰 · 요즘 이야기</h3>
-          <p class="use-case-desc">추천 피드와 급상승 글을 읽고, 관심 있는 동네와 건물의 이야기로 이동해요.</p>
-        </div>
-        <div class="use-case-card reveal" style="transition-delay: 0.5s">
-          <div class="use-case-emoji">🏢</div>
-          <h3 class="use-case-title">이웃톡 · 건물 이야기</h3>
-          <p class="use-case-desc">건물 탐색은 선택이에요. 궁금한 건물을 찾고 즐겨찾기한 뒤 건물 이야기에 참여하세요.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
-        <h2 class="section-title">오늘 필요한 정보를 내 방식대로</h2>
-        <p class="section-subtitle">알쓸픽은 일정과 지도를, 이웃톡은 대화를, 지금썰은 새 이야기를 모아요</p>
-      </div>
-
-      <div class="grid">
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="map"></ion-icon></div>
-          <h3>이웃톡 · 지역 이야기</h3>
-          <p>시/군/구 지역을 지도에서 찾아 이웃의 질문과 대화를 확인해요. 대화와 지도 보기를 오갈 수 있습니다.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="business"></ion-icon></div>
-          <h3>이웃톡 · 건물 이야기</h3>
-          <p>건물도 원할 때 지도에서 탐색할 수 있어요. 관심 건물을 즐겨찾기하고 같은 건물의 이야기를 살펴보세요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="newspaper"></ion-icon></div>
-          <h3>지금썰 · 추천 피드</h3>
-          <p>지역과 건물의 이야기, 뉴스와 청약 소식을 둘러보고 관심 있는 카테고리를 골라 읽어요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="flame"></ion-icon></div>
-          <h3>지금썰 · 급상승</h3>
-          <p>요즘 주목받는 지역과 건물의 글을 살펴보고 이웃톡으로 이어가요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="calendar-outline"></ion-icon></div>
-          <h3>알쓸픽 · 공공 체험 프로그램</h3>
-          <p>지역별 모집 일정을 캘린더와 지도에서 확인하고 관심 있는 프로그램의 상세 내용을 살펴봐요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
-          <h3>알쓸픽 · 뉴스와 청약정보</h3>
-          <p>부동산뉴스와 청약정보를 캘린더 또는 지도에서 골라 볼 수 있어요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="heart-outline"></ion-icon></div>
-          <h3>알쓸픽 · 육아히든카드</h3>
-          <p>아이와 함께 갈 만한 장소를 지도에서 찾고 우리 지역을 중심으로 탐색해요.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><ion-icon name="search"></ion-icon></div>
-          <h3>보관함과 관심 공간</h3>
-          <p>마음에 드는 장소와 건물을 모아두고 나중에 다시 찾아볼 수 있어요.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="how-it-works">
-    <div class="container">
-      <div class="reveal" style="text-align: center; margin-bottom: 60px;">
-        <h2 class="section-title">3단계로 시작하세요</h2>
-      </div>
-      
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>알쓸픽에서 동네 정보 찾기</h3>
-            <p>공공 체험 프로그램, 부동산뉴스, 청약정보는 캘린더나 지도로 보고, 육아히든카드는 지도에서 찾아보세요.</p>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">LOCAL LIFE, CONNECTED</span>
+          <h1 id="hero-title">지역을 발견하고,<br><strong>이웃과 연결되다.</strong></h1>
+          <p>필요한 정보는 더 쉽게 찾고, 궁금한 이야기는 가까운 이웃에게 물어보세요. 어디사니가 지역의 일상과 사람을 이어줍니다.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download"><ion-icon name="arrow-down-outline" aria-hidden="true"></ion-icon>앱 다운로드</a>
+            <a class="button button-secondary" href="#features">서비스 살펴보기 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
           </div>
+          <div class="hero-note"><ion-icon name="layers-outline" aria-hidden="true"></ion-icon>이웃톡 · 알쓸픽 · 지금썰, 세 가지 방식으로 시작하세요.</div>
         </div>
-        <div class="step reveal">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>이웃톡에서 지역 이야기 나누기</h3>
-            <p>우리 지역의 질문과 대화를 읽고 닉네임으로 참여하세요. 건물 이야기가 궁금하면 건물 탐색을 선택할 수 있어요.</p>
+        <div class="visual" role="img" aria-label="알쓸픽의 일정 탐색, 이웃톡의 지역 대화, 지금썰의 새로운 글을 표현한 서비스 개념도">
+          <div class="preview" aria-hidden="true">
+            <div class="preview-top"><strong>알쓸픽</strong><span><ion-icon name="calendar-outline"></ion-icon></span></div>
+            <p class="preview-caption">알아두면 쓸모 있는 지역 정보</p>
+            <div class="preview-tabs"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>청약정보</span></div>
+            <div class="calendar-heading"><strong>일정 살펴보기</strong><small>캘린더 · 지도</small></div>
+            <div class="calendar"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span><span class="day">01</span><span class="day">02</span><span class="day">03</span><span class="day">04</span><span class="day">05</span><span class="day">06</span><span class="day">07</span><span class="day">08</span><span class="day">09</span><span class="event">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span></div>
+            <div class="preview-event"><ion-icon name="compass-outline"></ion-icon><div><strong>공공 체험 프로그램</strong><small>지역과 날짜로 찾아보기</small></div></div>
           </div>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>지금썰에서 새 이야기 읽기</h3>
-            <p>추천 피드와 급상승 글을 둘러보고 관심 있는 동네 이야기나 프로그램으로 이동하세요.</p>
-          </div>
+          <div class="float-card float-left" aria-hidden="true"><span class="float-label">이웃톡 / 지역톡</span><strong>이웃들의 고민과 경험을 나눠요</strong><small>질문 · 투표 · 지역 이야기</small></div>
+          <div class="float-card float-right" aria-hidden="true"><span class="float-label">지금썰 / 추천 피드</span><strong>지금 올라온 이야기를 한눈에</strong><small>추천 글 · 급상승</small></div>
+          <span class="visual-caption">서비스 구성의 이해를 돕기 위한 일러스트입니다.</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Why Section (New) -->
-  <section class="why-section reveal">
-    <div class="container">
-      <div class="section-title">이번 주 동네 일정과 이야기,<br>어디서 찾아야 할지 고민되나요?</div>
-      
-      <div class="why-grid">
-        <div class="why-card">
-          <div style="font-size: 40px; margin-bottom: 24px;">🧭</div>
-          <h3>기존 탐색의 불편함</h3>
-          <ul class="why-list">
-            <li>"아이와 이번 주말 어디로 가볼까?"</li>
-            <li>"우리 동네 공공 프로그램은 언제 열릴까?"</li>
-            <li>"지역 뉴스와 청약 일정을 따로 찾아보기 번거롭다"</li>
-            <li>"이웃에게 직접 물어보고 싶다"</li>
-          </ul>
-        </div>
-        <div class="why-card">
-          <div style="font-size: 40px; margin-bottom: 24px;">💡</div>
-          <h3>어디사니의 연결 방식</h3>
-          <ul class="why-list">
-            <li>알쓸픽에서 프로그램, 육아 장소, 뉴스와 청약을 탐색</li>
-            <li>캘린더와 지도로 우리 지역 일정과 위치를 확인</li>
-            <li>이웃톡에서 지역 이야기를 나누고 건물은 원할 때 탐색</li>
-            <li>지금썰에서 새 글과 급상승 이야기를 발견</li>
-          </ul>
+    <section class="section experience" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">ONE APP, THREE PERSPECTIVES</span><h2 id="features-title">정보를 찾는 순간부터<br>이야기를 나누는 순간까지.</h2><p>원하는 방식으로 지역을 살펴보세요. 건물 탐색은 필요할 때 선택할 수 있습니다.</p></div>
+        <div class="experience-grid">
+          <article class="experience-card"><div class="card-index"><span>01 / 알쓸픽</span><ion-icon name="calendar-outline" aria-hidden="true"></ion-icon></div><div><h3>필요한 정보를<br>먼저 발견하세요.</h3><p>공공 체험 프로그램, 부동산뉴스, 청약정보를 캘린더나 지도에서 살펴보세요. 육아히든카드는 지도에서 아이와 갈 만한 장소를 찾을 수 있습니다.</p><div class="detail-strip"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>뉴스 · 청약</span></div></div></article>
+          <article class="experience-card"><div class="card-index"><span>02 / 이웃톡</span><ion-icon name="people-outline" aria-hidden="true"></ion-icon></div><div><h3>지역의 이야기를<br>함께 나눠요.</h3><p>지역톡에서 이웃들의 질문과 경험을 읽고 닉네임으로 참여하세요. 궁금한 건물이 있다면 건물톡도 둘러볼 수 있습니다.</p><div class="detail-strip"><span>지역톡</span><span>건물톡</span></div></div></article>
+          <article class="experience-card"><div class="card-index"><span>03 / 지금썰</span><ion-icon name="newspaper-outline" aria-hidden="true"></ion-icon></div><div><h3>지금 떠오르는<br>이야기를 읽어요.</h3><p>추천 피드와 급상승 글을 살펴보고, 관심 있는 지역과 건물의 이야기로 이어가세요.</p><div class="detail-strip"><span>추천 피드</span><span>급상승</span></div></div></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid reveal">
-        <div class="stat-item">
-          <div class="stat-number">이웃톡</div>
-          <div class="stat-label">지역 대화 · 건물 탐색</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3개</div>
-          <div class="stat-label">하단 주요 탭</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">지금썰</div>
-          <div class="stat-label">추천 피드 · 급상승</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">알쓸픽</div>
-          <div class="stat-label">캘린더 · 지도 · 육아 장소</div>
+    <section class="section flow" id="how-it-works" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">EXPLORE AT YOUR PACE</span><h2 id="flow-title">관심 있는 것부터 시작하세요.</h2><p>정보를 찾고, 이웃에게 묻고, 새로운 이야기를 발견하는 흐름.</p></div>
+        <div class="flow-list">
+          <div class="flow-row"><span>01</span><h3>일정을 찾고 싶다면</h3><p>알쓸픽에서 공공 체험 프로그램의 시작일과 모집 마감일을 확인하세요. 공식 신청 링크가 있는 프로그램은 상세 화면에서 이동할 수 있습니다.</p></div>
+          <div class="flow-row"><span>02</span><h3>직접 물어보고 싶다면</h3><p>이웃톡의 지역톡에서 질문과 투표를 살펴보세요. 건물 이야기가 궁금할 때는 건물톡으로 전환할 수 있습니다.</p></div>
+          <div class="flow-row"><span>03</span><h3>새로운 글이 궁금하다면</h3><p>지금썰에서 추천 피드와 급상승 이야기를 둘러보고 관심 있는 글로 이동하세요.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section reveal">
-    <div class="container">
-      <h2 class="section-title" style="margin-bottom: 40px;">자주 묻는 질문</h2>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <ion-icon name="finger-print"></ion-icon> 커뮤니티 글은 어떻게 보이나요?
-        </div>
-        <div class="faq-answer">
-          이웃톡에서 지역 이야기를 읽고 참여할 수 있어요. 건물 이야기는 건물 탐색을 선택하면 볼 수 있습니다.
+    <section class="section questions" aria-labelledby="questions-title">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">GOOD TO KNOW</span><h2 id="questions-title">자주 묻는 질문</h2></div>
+        <div class="faq">
+          <div class="faq-item"><h3>건물 탐색을 꼭 해야 하나요?</h3><p>아니요. 지역 이야기와 필요한 정보를 먼저 살펴보고, 건물이 궁금해질 때 건물톡에서 탐색할 수 있습니다.</p></div>
+          <div class="faq-item"><h3>육아히든카드는 어디서 보나요?</h3><p>알쓸픽에서 육아히든카드를 선택하면 아이와 갈 만한 장소를 지도에서 확인할 수 있습니다.</p></div>
+          <div class="faq-item"><h3>위치 정보는 언제 사용하나요?</h3><p>위치 접근을 허용하면 지도에서 현재 위치를 표시하고 주변 정보를 찾는 데 사용합니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인하세요.</p></div>
         </div>
       </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <ion-icon name="location"></ion-icon> 위치 정보는 언제 사용하나요?
-        </div>
-        <div class="faq-answer">
-          위치 접근을 허용하면 지도에서 현재 위치를 표시하고 주변 정보를 찾는 데 사용합니다. 자세한 내용은 개인정보처리방침을 확인하세요.
-        </div>
-      </div>
+    </section>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <ion-icon name="calendar-outline"></ion-icon> 공공 프로그램은 어디서 신청하나요?
-        </div>
-        <div class="faq-answer">
-          알쓸픽에서 공공 체험 프로그램의 모집 정보를 확인하세요. 공식 신청 링크가 제공된 프로그램은 상세 화면에서 신청 페이지로 이동할 수 있어요.
-        </div>
+    <section class="download" id="download" aria-labelledby="download-title">
+      <div class="container"><span class="eyebrow">START WITH EODISANI</span><h2 id="download-title">지역을 더 가까이,<br>이야기를 더 편하게.</h2><p>필요한 정보와 이웃의 경험을 어디사니에서 만나보세요.</p>
+        <div class="store-links"><a class="store-link" href="https://apps.apple.com/kr/app/%EC%96%B4%EB%94%94%EC%82%AC%EB%8B%88/id6757377187" aria-label="App Store에서 어디사니 다운로드"><ion-icon name="logo-apple" aria-hidden="true"></ion-icon><span><small>Download on the</small><strong>App Store</strong></span></a><a class="store-link" href="https://play.google.com/store/apps/details?id=com.eodisani.app.insung&amp;hl=ko" aria-label="Google Play에서 어디사니 다운로드"><ion-icon name="logo-google-playstore" aria-hidden="true"></ion-icon><span><small>Get it on</small><strong>Google Play</strong></span></a></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Conversion Section -->
-  <section class="conversion-section">
-    <div class="container">
-      <div class="reveal" style="text-align: center; margin-bottom: 26px;">
-        <h2 class="section-title">내 동네가 궁금할 때, 이렇게 시작해요</h2>
-        <p class="section-subtitle">알아두면 쓸모 있는 정보부터 이웃들의 고민과 경험까지.</p>
-      </div>
-      <div class="conversion-grid">
-        <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">NEIGHBOR TALK</span>
-          <h3 class="conversion-title">이웃톡에서<br>편하게 물어봐요</h3>
-          <p class="conversion-desc">
-            지역톡에서 이웃들의 고민과 경험을 나누고,
-            원할 때 건물톡으로 옮겨 건물별 이야기도 살펴보세요.
-          </p>
-        </div>
-        <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">USEFUL PICKS</span>
-          <h3 class="conversion-title">알쓸픽에서<br>오늘 필요한 정보를</h3>
-          <p class="conversion-desc">
-            공공 체험 프로그램과 육아히든카드를 찾아보고,
-            부동산뉴스와 청약정보는 날짜와 지역으로 살펴보세요.
-          </p>
-        </div>
-        <div class="conversion-card reveal">
-          <span class="conversion-eyebrow">NOW TALK</span>
-          <h3 class="conversion-title">지금썰에서<br>요즘 이야기 만나기</h3>
-          <p class="conversion-desc">
-            추천 피드와 급상승 글을 둘러보고
-            관심 있는 지역과 건물의 이야기로 이어가요.
-          </p>
-          <a href="#download" class="mini-cta">
-            <ion-icon name="arrow-down-circle-outline"></ion-icon>
-            지금 시작하기
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Value Proof Section -->
-  <section class="value-proof-section">
-    <div class="container">
-      <div class="reveal" style="text-align: center; margin-bottom: 26px;">
-        <h2 class="section-title">어디사니가 실제로 바꾸는 것</h2>
-        <p class="section-subtitle">찾아보고, 이야기하고, 새로운 소식을 읽는 흐름을 이어줘요.</p>
-      </div>
-      <div class="value-proof-grid">
-        <div class="value-proof-card reveal">
-          <span class="value-proof-label">FOR DAILY LIFE</span>
-          <h3 class="value-proof-title">이웃의 경험을<br>동네 이야기로</h3>
-          <p class="value-proof-desc">
-            이웃톡에서 지역 대화를 읽고 질문과 투표에 참여해요.
-            지도에서도 같은 지역을 찾아볼 수 있어요.
-          </p>
-        </div>
-        <div class="value-proof-card reveal">
-          <span class="value-proof-label">FOR FAMILY</span>
-          <h3 class="value-proof-title">아이와 갈 곳을<br>육아히든카드로</h3>
-          <p class="value-proof-desc">
-            알쓸픽에서 동네 육아 장소를 지도 위에서 찾고
-            우리 지역을 중심으로 살펴볼 수 있어요.
-          </p>
-        </div>
-        <div class="value-proof-card reveal">
-          <span class="value-proof-label">FOR LOCAL SIGNAL</span>
-          <h3 class="value-proof-title">공공 체험 프로그램을<br>캘린더에서 확인해요</h3>
-          <p class="value-proof-desc">
-            프로그램 시작일과 모집 마감일을 캘린더에서 확인하고,
-            신청 링크가 있는 프로그램은 상세 화면에서 이동할 수 있어요.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hero CTA -->
-  <section class="hero-cta">
-    <div class="container">
-      <div class="hero-cta-box reveal">
-        <h2 class="section-title">우리 동네가 궁금할 땐, 어디사니</h2>
-        <p class="section-subtitle" style="margin-bottom: 40px;">
-          알쓸픽에서 찾아보고, 이웃톡에서 이야기하고,<br>
-          지금썰에서 새 소식을 만나보세요.
-        </p>
-        <div class="cta-group">
-          <a href="#download" class="btn btn-primary">
-            <ion-icon name="arrow-down-circle-outline"></ion-icon>
-            지금 시작하기
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download Section -->
-  <section class="download reveal" id="download">
-    <div class="container">
-      <h2 class="download-title">우리 동네 정보와 이야기를 만나보세요</h2>
-      <p class="download-desc">
-        동네 프로그램, 아이와 갈 곳, 이웃의 이야기까지<br>
-        어디사니에서 찾아보세요.
-      </p>
-      
-      <div class="store-badges">
-        <a href="https://apps.apple.com/kr/app/%EC%96%B4%EB%94%94%EC%82%AC%EB%8B%88/id6757377187" class="store-badge">
-          <ion-icon name="logo-apple" style="font-size: 32px;"></ion-icon>
-          <div class="store-info">
-            <span class="store-label">Download on the</span>
-            <span class="store-name">App Store</span>
-          </div>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.eodisani.app.insung&amp;hl=ko" class="store-badge">
-          <ion-icon name="logo-google-playstore" style="font-size: 32px;"></ion-icon>
-          <div class="store-info">
-            <span class="store-label">Get it on</span>
-            <span class="store-name">Google Play</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="privacy.html">개인정보처리방침</a>
-        <a href="terms.html">이용약관</a>
-        <a href="support.html">고객지원</a>
-        <a href="contact.html">문의하기</a>
-      </div>
-      <p class="copyright">© 2026 Eodisani. All rights reserved.</p>
-    </div>
-  </footer>
+    </section>
+  </main>
+  <footer><div class="container footer-content"><p class="copyright">© 2026 Eodisani. All rights reserved.</p><nav class="footer-links" aria-label="법적 고지와 고객 지원"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="support.html">고객지원</a><a href="contact.html">문의하기</a></nav></div></footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <script>
-    // Scroll Reveal
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px"
-    };
-
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-      }, observerOptions);
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-      document.documentElement.classList.add('js-reveal');
-    }
-
-    // Header Scroll Effect
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
 </body>
 </html>
