@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080b11">
-  <title>어디사니 - 지역의 정보와 이웃의 이야기</title>
-  <meta name="description" content="알쓸픽에서 공공 체험 프로그램, 육아히든카드, 부동산뉴스와 청약정보를 살펴보고 이웃톡에서 지역 이야기를 나눠요. 지금썰에서 새로운 소식도 만나보세요.">
+  <title>어디사니 - 지역 정보에 이웃의 경험을 더하다</title>
+  <meta name="description" content="공공 프로그램과 지역 정보를 살피고, 이웃의 질문과 경험을 함께 만나보세요. 어디사니의 알쓸픽·이웃톡·지금썰에서 정보와 이야기를 이어갑니다.">
   <meta name="keywords" content="어디사니, 알쓸픽, 이웃톡, 지금썰, 공공 체험 프로그램, 육아히든카드, 부동산뉴스, 청약정보">
   <link rel="canonical" href="https://eodisani.com/">
   <link rel="icon" type="image/png" href="favicon.png">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="어디사니 - 지역의 정보와 이웃의 이야기">
-  <meta property="og:description" content="필요한 지역 정보를 발견하고, 이웃의 이야기를 만나보세요.">
+  <meta property="og:title" content="어디사니 - 지역 정보에 이웃의 경험을 더하다">
+  <meta property="og:description" content="정보로 발견하고, 이웃의 경험으로 더 깊이 알아가는 지역.">
   <meta property="og:image" content="https://one-shot-one-map.s3.ap-northeast-2.amazonaws.com/kakao-talk/og_image_black.png">
   <meta property="og:url" content="https://eodisani.com/">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
@@ -68,30 +68,21 @@
     /* Editorial illustration of the three product surfaces; not an app screenshot. */
     .visual { position: relative; height: 535px; min-width: 0; display: flex; align-items: center; justify-content: center; }
     .visual::before { content: ''; position: absolute; width: 430px; height: 430px; max-width: 85%; border: 1px solid rgba(121,176,255,.19); border-radius: 50%; box-shadow: 0 0 0 60px rgba(121,176,255,.025), 0 0 0 120px rgba(121,176,255,.018); }
-    .preview { position: relative; width: min(365px, 78%); border: 1px solid rgba(215,229,250,.23); border-radius: 29px; padding: 23px; background: #18212d; box-shadow: 0 35px 95px rgba(0,0,0,.38); transform: rotate(-4deg); }
+    .preview { position: relative; width: min(395px, 81%); border: 1px solid rgba(215,229,250,.23); border-radius: 29px; padding: 25px; background: #18212d; box-shadow: 0 35px 95px rgba(0,0,0,.38); transform: rotate(-3deg); }
     .preview-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
     .preview-top strong { font-size: 20px; letter-spacing: -.04em; }
-    .preview-top span { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(121,176,255,.13); color: var(--blue); }
-    .preview-caption { color: var(--muted); font-size: 13px; margin: 19px 0 13px; }
-    .preview-tabs { display: flex; gap: 7px; margin-bottom: 18px; }
-    .preview-tabs span { white-space: nowrap; font-size: 11px; padding: 6px 8px; border-radius: 7px; color: var(--muted); border: 1px solid var(--line); }
-    .preview-tabs span:first-child { background: rgba(49,130,246,.22); color: #c7ddff; border-color: rgba(121,176,255,.36); }
-    .calendar-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 11px; font-size: 14px; }
-    .calendar-heading small { color: var(--muted); font-size: 11px; }
-    .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
-    .calendar span { display: grid; place-items: center; height: 33px; font-size: 11px; color: var(--muted); border-radius: 8px; }
-    .calendar .day { color: var(--text); background: rgba(255,255,255,.05); }
-    .calendar .event { color: #fff; background: var(--blue-strong); }
-    .preview-event { margin-top: 15px; padding: 13px; display: flex; gap: 11px; align-items: center; background: #233348; border: 1px solid rgba(121,176,255,.24); border-radius: 13px; }
-    .preview-event ion-icon { color: var(--blue); font-size: 22px; }
-    .preview-event strong { display: block; font-size: 13px; }
-    .preview-event small { display: block; color: var(--muted); font-size: 11px; }
-    .float-card { position: absolute; border: 1px solid rgba(215,229,250,.24); background: #202b39; box-shadow: 0 22px 55px rgba(0,0,0,.3); border-radius: 17px; padding: 15px 18px; max-width: 215px; }
-    .float-card .float-label { display: block; font-size: 11px; color: var(--blue); font-weight: 750; margin-bottom: 5px; }
-    .float-card strong { display: block; font-size: 15px; line-height: 1.4; }
-    .float-card small { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
-    .float-left { left: 0; top: 67px; transform: rotate(4deg); }
-    .float-right { right: 0; bottom: 48px; transform: rotate(5deg); }
+    .preview-top span { color: var(--blue); font-size: 11px; font-weight: 700; }
+    .preview-caption { color: var(--muted); font-size: 13px; margin: 19px 0; }
+    .preview-panel { padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: #202b39; }
+    .preview-panel h3 { font-size: 18px; line-height: 1.35; letter-spacing: -.035em; margin: 9px 0 6px; }
+    .preview-panel p { margin: 0; color: var(--muted); font-size: 12px; }
+    .preview-label { display: flex; align-items: center; gap: 7px; color: var(--blue); font-size: 12px; font-weight: 750; }
+    .preview-label ion-icon { font-size: 16px; }
+    .preview-bridge { display: flex; align-items: center; gap: 10px; margin: 10px 0 10px 15px; color: var(--blue); font-size: 11px; font-weight: 700; }
+    .preview-bridge::before { content: ''; width: 1px; height: 31px; background: var(--blue); opacity: .65; }
+    .preview-panel-talk { background: #243954; border-color: rgba(121,176,255,.4); }
+    .preview-tags { display: flex; gap: 6px; margin-top: 13px; }
+    .preview-tags span { padding: 4px 9px; border-radius: 6px; background: rgba(121,176,255,.13); color: #c4dcff; font-size: 11px; }
     .visual-caption { position: absolute; bottom: 0; right: 0; color: #7e8da3; font-size: 11px; }
 
     .section { padding-block: 112px; }
@@ -142,8 +133,6 @@
     .copyright { margin: 0; color: #77869b; font-size: 12px; }
     @media (max-width: 1000px) {
       .hero-grid { gap: 24px; }
-      .float-left { left: -5px; }
-      .float-right { right: -5px; }
       .experience-grid { grid-template-columns: 1fr 1fr; }
       .experience-card:first-child { grid-column: 1 / -1; min-height: 260px; }
     }
@@ -156,9 +145,7 @@
       h1 { font-size: clamp(42px, 10vw, 56px); }
       .hero-copy > p { font-size: 17px; }
       .visual { height: 455px; }
-      .preview { width: min(340px, 81%); padding: 19px; }
-      .float-left { top: 23px; }
-      .float-right { bottom: 22px; }
+      .preview { width: min(340px, 83%); padding: 19px; }
       .section { padding-block: 78px; }
       .section-heading { margin-bottom: 35px; }
       .experience-grid, .faq { grid-template-columns: 1fr; }
@@ -171,11 +158,7 @@
     @media (max-width: 420px) {
       .visual { height: 425px; }
       .preview { width: 86%; }
-      .float-card { max-width: 165px; padding: 11px 13px; }
-      .float-card strong { font-size: 12px; }
-      .float-right { right: -4px; bottom: 16px; }
-      .float-left { left: -5px; top: 0; }
-      .preview-tabs span { font-size: 10px; padding-inline: 6px; }
+      .preview-panel { padding: 13px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -198,38 +181,35 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">LOCAL LIFE, CONNECTED</span>
-          <h1 id="hero-title">지역을 발견하고,<br><strong>이웃과 연결되다.</strong></h1>
-          <p>필요한 정보는 더 쉽게 찾고, 궁금한 이야기는 가까운 이웃에게 물어보세요. 어디사니가 지역의 일상과 사람을 이어줍니다.</p>
+          <span class="eyebrow">정보 너머의 지역을 만나는 방법</span>
+          <h1 id="hero-title">지역 정보에<br><strong>이웃의 경험을 더하다.</strong></h1>
+          <p>일정과 소식만으로는 알 수 없는 것들이 있죠. 필요한 정보를 살펴보고, 그 지역과 건물에 관한 이야기를 이웃에게 묻고 나눠보세요.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#download"><ion-icon name="arrow-down-outline" aria-hidden="true"></ion-icon>앱 다운로드</a>
             <a class="button button-secondary" href="#features">서비스 살펴보기 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
           </div>
-          <div class="hero-note"><ion-icon name="layers-outline" aria-hidden="true"></ion-icon>이웃톡 · 알쓸픽 · 지금썰, 세 가지 방식으로 시작하세요.</div>
+          <div class="hero-note"><ion-icon name="layers-outline" aria-hidden="true"></ion-icon>정보를 살피고 · 경험을 듣고 · 내 관점을 만들어가요.</div>
         </div>
-        <div class="visual" role="img" aria-label="알쓸픽의 일정 탐색, 이웃톡의 지역 대화, 지금썰의 새로운 글을 표현한 서비스 개념도">
+        <div class="visual" role="img" aria-label="알쓸픽에서 지역 정보를 살펴보고 이웃톡에서 경험을 묻고 나누는 어디사니의 가치 흐름을 나타낸 개념도">
           <div class="preview" aria-hidden="true">
-            <div class="preview-top"><strong>알쓸픽</strong><span><ion-icon name="calendar-outline"></ion-icon></span></div>
-            <p class="preview-caption">알아두면 쓸모 있는 지역 정보</p>
-            <div class="preview-tabs"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>청약정보</span></div>
-            <div class="calendar-heading"><strong>일정 살펴보기</strong><small>캘린더 · 지도</small></div>
-            <div class="calendar"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span><span class="day">01</span><span class="day">02</span><span class="day">03</span><span class="day">04</span><span class="day">05</span><span class="day">06</span><span class="day">07</span><span class="day">08</span><span class="day">09</span><span class="event">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span></div>
-            <div class="preview-event"><ion-icon name="compass-outline"></ion-icon><div><strong>공공 체험 프로그램</strong><small>시작 · 마감 · 모집중 일정</small></div></div>
+            <div class="preview-top"><strong>어디사니</strong><span>정보 + 사람의 이야기</span></div>
+            <p class="preview-caption">같은 지역을 알아가는 두 가지 시선</p>
+            <div class="preview-panel"><div class="preview-label"><ion-icon name="calendar-outline"></ion-icon>알쓸픽 / 정보</div><h3>필요한 일정과 소식을 살펴보고</h3><p>공공 프로그램 · 부동산뉴스 · 청약정보</p></div>
+            <div class="preview-bridge">이야기를 더하면</div>
+            <div class="preview-panel preview-panel-talk"><div class="preview-label"><ion-icon name="chatbubbles-outline"></ion-icon>이웃톡 / 경험</div><h3>그 지역의 이야기를 묻고 나눠요</h3><p>지역별 질문과 투표, 건물별 대화</p><div class="preview-tags"><span>지역톡</span><span>건물톡</span></div></div>
           </div>
-          <div class="float-card float-left" aria-hidden="true"><span class="float-label">이웃톡 / 지역톡</span><strong>이웃들의 고민과 경험을 나눠요</strong><small>질문 · 투표 · 지역 이야기</small></div>
-          <div class="float-card float-right" aria-hidden="true"><span class="float-label">지금썰 / 추천 피드</span><strong>지금 올라온 이야기를 한눈에</strong><small>추천 글 · 급상승</small></div>
-          <span class="visual-caption">서비스 구성의 이해를 돕기 위한 일러스트입니다.</span>
+          <span class="visual-caption">실제 게시물이나 앱 화면이 아닌 서비스 개념도입니다.</span>
         </div>
       </div>
     </section>
 
     <section class="section experience" id="features" aria-labelledby="features-title">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">ONE APP, THREE PERSPECTIVES</span><h2 id="features-title">정보를 찾는 순간부터<br>이야기를 나누는 순간까지.</h2><p>원하는 방식으로 지역을 살펴보세요. 건물 탐색은 필요할 때 선택할 수 있습니다.</p></div>
+        <div class="section-heading"><span class="eyebrow">정보와 경험, 한곳에서</span><h2 id="features-title">정보만으로 모르는 것까지,<br>서로의 이야기로.</h2><p>찾고 싶은 정보와 묻고 싶은 이야기를 같은 앱에서 이어가세요. 건물 탐색은 필요할 때 선택할 수 있습니다.</p></div>
         <div class="experience-grid">
-          <article class="experience-card"><div class="card-index"><span>01 / 알쓸픽</span><ion-icon name="calendar-outline" aria-hidden="true"></ion-icon></div><div><h3>필요한 정보를<br>먼저 발견하세요.</h3><p>공공 체험 프로그램, 부동산뉴스, 청약정보를 캘린더나 지도에서 살펴보세요. 육아히든카드는 지도에서 아이와 갈 만한 장소를 찾을 수 있습니다.</p><div class="detail-strip"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>뉴스 · 청약</span></div></div></article>
-          <article class="experience-card"><div class="card-index"><span>02 / 이웃톡</span><ion-icon name="people-outline" aria-hidden="true"></ion-icon></div><div><h3>지역의 이야기를<br>함께 나눠요.</h3><p>지역톡에서 이웃들의 질문과 경험을 읽고 닉네임으로 참여하세요. 궁금한 건물이 있다면 건물톡도 둘러볼 수 있습니다.</p><div class="detail-strip"><span>지역톡</span><span>건물톡</span></div></div></article>
-          <article class="experience-card"><div class="card-index"><span>03 / 지금썰</span><ion-icon name="newspaper-outline" aria-hidden="true"></ion-icon></div><div><h3>지금 떠오르는<br>이야기를 읽어요.</h3><p>추천 피드와 급상승 글을 살펴보고, 관심 있는 지역과 건물의 이야기로 이어가세요.</p><div class="detail-strip"><span>추천 피드</span><span>급상승</span></div></div></article>
+          <article class="experience-card"><div class="card-index"><span>01 / 알쓸픽</span><ion-icon name="calendar-outline" aria-hidden="true"></ion-icon></div><div><h3>무엇이 있는지,<br>언제 시작하는지.</h3><p>공공 체험 프로그램, 부동산뉴스, 청약정보를 캘린더나 지도에서 살펴보세요. 육아히든카드는 아이와 갈 만한 장소를 지도에서 찾을 수 있습니다.</p><div class="detail-strip"><span>공공 체험 프로그램</span><span>육아히든카드</span><span>뉴스 · 청약</span></div></div></article>
+          <article class="experience-card"><div class="card-index"><span>02 / 이웃톡</span><ion-icon name="people-outline" aria-hidden="true"></ion-icon></div><div><h3>그곳에 관해<br>사람들은 뭐라고 할까.</h3><p>지역톡에서 질문과 투표, 이웃의 경험을 읽고 참여하세요. 특정 건물이 궁금해질 때는 건물톡에서 대화를 살펴볼 수 있습니다.</p><div class="detail-strip"><span>지역톡</span><span>건물톡</span></div></div></article>
+          <article class="experience-card"><div class="card-index"><span>03 / 지금썰</span><ion-icon name="newspaper-outline" aria-hidden="true"></ion-icon></div><div><h3>새로운 관점이<br>필요할 때.</h3><p>추천 피드와 급상승 글에서 관심 있는 지역과 건물의 이야기를 만나보세요.</p><div class="detail-strip"><span>추천 피드</span><span>급상승</span></div></div></article>
         </div>
       </div>
     </section>
@@ -259,7 +239,7 @@
     </section>
 
     <section class="download" id="download" aria-labelledby="download-title">
-      <div class="container"><span class="eyebrow">START WITH EODISANI</span><h2 id="download-title">지역을 더 가까이,<br>이야기를 더 편하게.</h2><p>필요한 정보와 이웃의 경험을 어디사니에서 만나보세요.</p>
+      <div class="container"><span class="eyebrow">어디사니에서 시작하세요</span><h2 id="download-title">정보를 찾고,<br>이야기로 더 알아가세요.</h2><p>지역 정보와 이웃의 경험, 두 가지 시선을 한곳에서.</p>
         <div class="store-links"><a class="store-link" href="https://apps.apple.com/kr/app/%EC%96%B4%EB%94%94%EC%82%AC%EB%8B%88/id6757377187" aria-label="App Store에서 어디사니 다운로드"><ion-icon name="logo-apple" aria-hidden="true"></ion-icon><span><small>Download on the</small><strong>App Store</strong></span></a><a class="store-link" href="https://play.google.com/store/apps/details?id=com.eodisani.app.insung&amp;hl=ko" aria-label="Google Play에서 어디사니 다운로드"><ion-icon name="logo-google-playstore" aria-hidden="true"></ion-icon><span><small>Get it on</small><strong>Google Play</strong></span></a></div>
       </div>
     </section>
